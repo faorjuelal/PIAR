@@ -1,0 +1,61 @@
+{
+ "params": {
+  "mu": -0.8,
+  "gamma": 0.25,
+  "A": 0.8,
+  "Omega": 0.6666666666666666,
+  "periods": 200000
+ },
+ "runs": [
+  {
+   "ic": [
+    0.0,
+    0.0
+   ],
+   "mean_sin_theta": 2.0708403588442684e-05,
+   "mean_omega": -1.7426041500553403e-05,
+   "tv_section0_vs_mirrored_pi": 0.013550000000000006
+  },
+  {
+   "ic": [
+    1.0,
+    -0.5
+   ],
+   "mean_sin_theta": 0.00018380337274664273,
+   "mean_omega": 0.0008032995031540238,
+   "tv_section0_vs_mirrored_pi": 0.013089999999999997
+  },
+  {
+   "ic": [
+    -2.0,
+    1.0
+   ],
+   "mean_sin_theta": -0.00042242676359753356,
+   "mean_omega": -0.00170037768470695,
+   "tv_section0_vs_mirrored_pi": 0.017759999999999998
+  }
+ ],
+ "baseline_pairs": [
+  {
+   "pair": [
+    0,
+    1
+   ],
+   "tv_section0_independent": 0.013225000000000004
+  },
+  {
+   "pair": [
+    0,
+    2
+   ],
+   "tv_section0_independent": 0.013965000000000002
+  },
+  {
+   "pair": [
+    1,
+    2
+   ],
+   "tv_section0_independent": 0.014550000000000007
+  }
+ ]
+}

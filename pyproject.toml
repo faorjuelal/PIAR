@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "piar"
+version = "2.2.0"
+description = "Computational laboratory for the spring-coupled inverted pendulum (PIAR): analytical mechanics, five conservative regimes, damped-driven chaos, and the physics-informed generative full-partial reconstruction mapping (FPRM)."
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "matplotlib", "numba", "torch", "zuko", "scikit-learn", "cmcrameri"]
+
+[tool.setuptools]
+packages = ["piar"]

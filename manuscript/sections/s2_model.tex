@@ -1,0 +1,128 @@
+\section{The spring-coupled inverted pendulum}\label{sec:model}
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{figures/fig_model.pdf}
+\caption{Model and bifurcation. (a) Schematic of the PIAR: massless rod of length $L$ with a point mass $M$, and horizontal spring of stiffness $k$ attached to a collar that slides along a vertical guide, at a distance $d>L$ from the pivot, following the height $y_c=L\cos\theta$ of the mass; the elongation of the spring equals $L\sin\theta$, and the dashed circle is the path of the mass. (b) Potential energy, Eq.~\eqref{eq:U}, in units of $MgL$ for the values of $\mu$ of the five cases of Sec.~\ref{sec:cases}. (c) Equilibrium angles versus $\mu$, showing the subcritical pitchfork at $\mu=0$ (solid lines, stable; dashed lines, unstable); colored vertical lines mark the five cases. (d) Scales that vanish at the critical point: small-oscillation frequency, Eq.~\eqref{eq:omega0}; tilt of the saddles, Eq.~\eqref{eq:thetastar}; and barrier height, Eq.~\eqref{eq:barrier}.}
+\label{fig:model}
+\end{figure*}
+
+\subsection{Geometry and measurable observables}\label{sec:geometry}
+
+The PIAR is sketched in Fig.~\ref{fig:model}(a). A massless rigid rod of length $L$ pivots without friction about its lower end and carries a point mass $M$ at its upper end. The angle $\theta$ is measured from the upward vertical, so that $\theta=0$ is the upright position and $\theta=\pi$ the hanging one. A spring of stiffness $k$ joins the mass to a massless collar that slides freely along a vertical guide placed at a distance $d>L$ from the pivot, so that the mass can pass between the guide and the pivot during a full revolution. Because the collar follows the height of the mass, the spring remains horizontal, and, when its natural length equals $d$, its elongation is exactly the horizontal displacement of the mass, $L\sin\theta$: the spring is stretched when the mass moves away from the guide and compressed when it moves toward it. Two quantities of this arrangement can be measured without access to the angle itself, and both play a central role in the reconstruction problem of Sec.~\ref{sec:fprm}. The first is the spring force (the tension of the spring, positive in extension),
+\begin{equation}
+F_s = kL\sin\theta ,
+\label{eq:Fs}
+\end{equation}
+which a load cell in series with the spring records; the second is the height of the collar above the pivot,
+\begin{equation}
+y_c = L\cos\theta ,
+\label{eq:yc}
+\end{equation}
+which a linear encoder on the guide records. After calibration, the normalized channels $s=F_s/(kL)=\sin\theta$ and $c=y_c/L=\cos\theta$ are used throughout. Together they are the two coordinates of the mass on a unit circle and determine the angle, but each of them alone determines it only up to a reflection: $s$ is unchanged by $\theta\to\pi-\theta$, which exchanges the upper and lower half-planes, and $c$ by $\theta\to-\theta$, which exchanges the left and right half-planes.
+
+\subsection{Energies and equation of motion}\label{sec:lagrangian}
+
+The mass moves on a circle of radius $L$ about the pivot, so that its kinetic energy is that of a point mass with moment of inertia $ML^{2}$,
+\begin{equation}
+K = \tfrac12 ML^{2}\dot\theta^{2},
+\label{eq:K}
+\end{equation}
+where the dot denotes a derivative with respect to time $t$. The potential energy contains a gravitational contribution, due to the height $L\cos\theta$ of the mass, and an elastic contribution, due to the elongation $L\sin\theta$ of the spring,
+\begin{equation}
+U(\theta) = MgL\cos\theta + \tfrac12 kL^{2}\sin^{2}\theta ,
+\label{eq:U}
+\end{equation}
+with $g$ the gravitational acceleration. The two terms compete: gravity lowers the energy when the rod tilts away from the vertical, whereas the spring raises it. The Lagrangian $\mathcal L=K-U$ and the Euler--Lagrange equation, $\mathrm d(\partial\mathcal L/\partial\dot\theta)/\mathrm dt=\partial\mathcal L/\partial\theta$~\cite{Goldstein2002}, yield the equation of motion
+\begin{equation}
+ML^{2}\ddot\theta = MgL\sin\theta - kL^{2}\sin\theta\cos\theta ,
+\label{eq:torque}
+\end{equation}
+which is the balance of torques about the pivot. The first term on the right-hand side is the gravitational torque, which tips the rod away from the vertical; the second is the torque of the restoring force that the spring exerts on the mass, $-F_s$, applied at the height $L\cos\theta$, which pulls the rod back toward the vertical while the mass is above the pivot. Dividing by the moment of inertia gives the standard form
+\begin{equation}
+\ddot\theta + \lambda\sin\theta\cos\theta - \beta\sin\theta = 0,
+\qquad \lambda = \frac{k}{M},\quad \beta = \frac{g}{L},
+\label{eq:eom}
+\end{equation}
+in which $\lambda$ and $\beta$ are the squared angular frequencies associated with the spring and with gravity, respectively.
+
+The Hamiltonian formulation makes the conservation law explicit. With the canonical momentum $p=\partial\mathcal L/\partial\dot\theta=ML^{2}\dot\theta$, the Hamiltonian is the mechanical energy,
+\begin{equation}
+H(\theta,p) = \frac{p^{2}}{2ML^{2}} + U(\theta) = E ,
+\label{eq:H}
+\end{equation}
+and Hamilton's equations, $\dot\theta=\partial H/\partial p$ and $\dot p=-\partial H/\partial\theta$, reproduce Eq.~\eqref{eq:eom}. Because $H$ does not depend explicitly on time, the energy $E$ is constant along every trajectory, and each orbit is a level curve of $H$ on the phase cylinder $(\theta,p)\in S^{1}\times\mathbb R$. The complete qualitative dynamics is therefore encoded in the shape of the potential landscape $U(\theta)$.
+
+\subsection{Natural units and the control parameter}\label{sec:units}
+
+Measuring time in units of $t_c=(L/g)^{1/2}$ and energy in units of $MgL$ reduces Eq.~\eqref{eq:eom} to
+\begin{equation}
+\theta'' = \sin\theta\,\bigl[1-(1+\mu)\cos\theta\bigr],
+\qquad
+\mu = \frac{kL}{Mg}-1 = \frac{\lambda}{\beta}-1 ,
+\label{eq:eom_dimless}
+\end{equation}
+where the prime denotes a derivative with respect to $t/t_c$. The single remaining parameter, $\mu$, compares the two torques of Eq.~\eqref{eq:torque} at small angles, $kL^{2}\theta$ and $MgL\theta$: the spring dominates for $\mu>0$, gravity dominates for $\mu<0$, and the two balance exactly at $\mu=0$, that is, for $kL=Mg$. The ratio $\kappa=1+\mu=kL/(Mg)$ will also be used. Two parameter sets with the same $\mu$ are dynamically similar and differ only in their scales of time and energy, a property exploited in Sec.~\ref{sec:cases}.
+
+\subsection{Equilibria, stability, and the subcritical pitchfork}\label{sec:equilibria}
+
+Equilibria are the critical points of the potential, $U'(\theta)=\sin\theta\,(kL^{2}\cos\theta-MgL)=0$, and their stability follows from the sign of the curvature
+\begin{equation}
+U''(\theta) = -MgL\cos\theta + kL^{2}\cos2\theta ,
+\label{eq:U2}
+\end{equation}
+because a minimum of the potential is a stable center of the Hamiltonian flow and a maximum is an unstable saddle~\cite{Strogatz2015}. Three families of equilibria exist [Figs.~\ref{fig:model}(b) and \ref{fig:model}(c)]. The upright position, $\theta=0$, has $U''(0)=MgL\,\mu$. It is therefore a center for $\mu>0$, about which the rod oscillates with the small-amplitude angular frequency
+\begin{equation}
+\omega_0 = \left(\frac{g}{L}\,\mu\right)^{1/2},
+\label{eq:omega0}
+\end{equation}
+and a saddle for $\mu<0$. The hanging position, $\theta=\pi$, has $U''(\pi)=MgL(2+\mu)>0$ and is always a center, with frequency $\omega_\pi=[(g/L)(2+\mu)]^{1/2}$. Finally, for $\mu>0$ a pair of tilted equilibria $\pm\theta^{*}$ appears, at which the gravitational torque exactly balances the spring torque,
+\begin{equation}
+\cos\theta^{*} = \frac{1}{1+\mu} = \frac{Mg}{kL} .
+\label{eq:thetastar}
+\end{equation}
+Their curvature, $U''(\theta^{*})=-MgL\,\mu(2+\mu)/(1+\mu)$, is negative, so that they are saddles that bound the upright well. The depth of that well, i.e., the energy barrier that a perturbation must overcome to topple the rod, is
+\begin{equation}
+\Delta U = U(\theta^{*})-U(0) = MgL\,\frac{\mu^{2}}{2(1+\mu)} .
+\label{eq:barrier}
+\end{equation}
+
+The local structure near $\mu=0$ is captured by expanding Eq.~\eqref{eq:eom_dimless} for small angles,
+\begin{equation}
+\theta'' = -\mu\,\theta + \tfrac16(3+4\mu)\,\theta^{3} + O(\theta^{5}),
+\label{eq:normal_form}
+\end{equation}
+which is the normal form of a pitchfork bifurcation~\cite{GuckenheimerHolmes1983,Strogatz2015}. The linear term, $-\mu\theta$, gives the upright position the stiffness $\mu$ (in units of $MgL$), and the positive cubic coefficient, equal to $\frac12$ at $\mu=0$, shows that the nonlinearity softens the restoring force as the amplitude grows. The bifurcation is therefore subcritical: the tilted branches, $\theta^{*}\simeq(2\mu)^{1/2}$, exist on the side where the upright position is stable, and they are unstable [Fig.~\ref{fig:model}(c)]. At the critical point itself the upright position is degenerate: its linear stiffness vanishes, but the quartic maximum $U\simeq MgL(1-\theta^{4}/8)$ makes the equilibrium unstable.
+
+Equations~\eqref{eq:omega0}--\eqref{eq:barrier} quantify the trade-off that governs inverted-pendulum isolators~\cite{Losurdo1999,Takamori2007} [Fig.~\ref{fig:model}(d)]. Tuning the spring toward $kL=Mg$ lowers the resonance frequency as $\mu^{1/2}$, which improves the isolation, but the tilt of the saddles shrinks as $\mu^{1/2}$ and the barrier as $\mu^{2}$, so that the barrier vanishes much faster than the frequency. A device tuned to $\mu=0.01$ has a resonance frequency lower by a factor of 10 than one tuned to $\mu=1$, but a barrier lower by a factor of about 5000.
+
+\subsection{Separatrices, periods, and symmetry}\label{sec:separatrix}
+
+The separatrix is the level set of $H$ that passes through the saddles, and it divides the phase cylinder into regions of qualitatively different motion. For $\mu\le0$ the only saddle is the upright position, and the separatrix energy is
+\begin{equation}
+E_{\mathrm{sep}} = MgL ,\qquad \mu\le0,
+\label{eq:Esep_neg}
+\end{equation}
+whereas for $\mu>0$ the saddles are the tilted equilibria, and
+\begin{equation}
+E_{\mathrm{sep}} = U(\theta^{*}) = MgL\,\frac{(1+\mu)^{2}+1}{2(1+\mu)},\qquad \mu>0 .
+\label{eq:Esep}
+\end{equation}
+In the phase plane, the separatrix consists of the curves
+\begin{equation}
+\dot\theta_{\mathrm{sep}}(\theta) = \pm\left\{\frac{2\,[E_{\mathrm{sep}}-U(\theta)]}{ML^{2}}\right\}^{1/2},
+\label{eq:sep_curve}
+\end{equation}
+obtained by solving Eq.~\eqref{eq:H} for the angular velocity at the energy $E_{\mathrm{sep}}$. Orbits with $E<E_{\mathrm{sep}}$ librate, either about the hanging position or, for $\mu>0$ and $MgL\le E<E_{\mathrm{sep}}$, inside the upright well; orbits with $E>E_{\mathrm{sep}}$ rotate, and their angle grows without bound. The period of any orbit follows from Eq.~\eqref{eq:H} by quadrature,
+\begin{equation}
+T(E) = \oint\frac{\mathrm d\theta}{\dot\theta}
+= \oint\frac{\mathrm d\theta}{\{2[E-U(\theta)]/(ML^{2})\}^{1/2}},
+\label{eq:period}
+\end{equation}
+where the integral extends over one full libration or over one revolution. The period diverges as $E\to E_{\mathrm{sep}}$, because the orbit then spends an ever longer time near the saddles: the time spent near each saddle grows logarithmically, as $\ln(MgL/|E-E_{\mathrm{sep}}|)$, when the saddles are hyperbolic ($\mu\ne0$), and as the power law $|E-E_{\mathrm{sep}}|^{-1/4}$ at the degenerate point $\mu=0$, where the maximum of the potential is quartic (Appendix~\ref{app:derivations}).
+
+Two symmetries complete the description. Equation~\eqref{eq:eom} is invariant under time reversal and under the reflection $\theta\to-\theta$, which exchanges the left and right halves of the motion. Under the reflection, the spring force is odd and the collar height is even,
+\begin{equation}
+F_s\to-F_s,\qquad y_c\to y_c ,
+\label{eq:reflection}
+\end{equation}
+an elementary observation with a far-reaching consequence: no record of the collar height, however long, can reveal on which side of the vertical the rod is. Section~\ref{sec:identifiability} shows how this fact determines which reconstruction problems are well posed.

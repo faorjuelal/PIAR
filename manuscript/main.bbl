@@ -1,0 +1,1140 @@
+%merlin.mbs aipnum4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (0) allowed
+%Control: page (1) range
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{98}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{http://dx.doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Losurdo}\ \emph {et~al.}(1999)\citenamefont {Losurdo}
+  \emph {et~al.}}]{Losurdo1999}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Losurdo}} \emph {et~al.},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {An inverted pendulum preisolator stage for the {VIRGO} suspension system},}\
+  }\href {\doibase 10.1063/1.1149783} {\bibfield  {journal} {\bibinfo
+  {journal} {Rev. Sci. Instrum.}\ }\textbf {\bibinfo {volume} {70}},\ \bibinfo
+  {pages} {2507--2515} (\bibinfo {year} {1999})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Takamori}\ \emph {et~al.}(2007)\citenamefont
+  {Takamori}, \citenamefont {Raffai}, \citenamefont {M{\'a}rka}, \citenamefont
+  {DeSalvo}, \citenamefont {Sannibale}, \citenamefont {Tariq}, \citenamefont
+  {Bertolini}, \citenamefont {Cella}, \citenamefont {Viboud}, \citenamefont
+  {Numata}, \citenamefont {Takahashi},\ and\ \citenamefont
+  {Fukushima}}]{Takamori2007}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Takamori}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Raffai}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {M{\'a}rka}}, \bibinfo
+  {author} {\bibfnamefont {R.}~\bibnamefont {DeSalvo}}, \bibinfo {author}
+  {\bibfnamefont {V.}~\bibnamefont {Sannibale}}, \bibinfo {author}
+  {\bibfnamefont {H.}~\bibnamefont {Tariq}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Bertolini}}, \bibinfo {author} {\bibfnamefont
+  {G.}~\bibnamefont {Cella}}, \bibinfo {author} {\bibfnamefont
+  {N.}~\bibnamefont {Viboud}}, \bibinfo {author} {\bibfnamefont
+  {K.}~\bibnamefont {Numata}}, \bibinfo {author} {\bibfnamefont
+  {R.}~\bibnamefont {Takahashi}}, \ and\ \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Fukushima}},\ }\bibfield  {title} {\enquote {\bibinfo
+  {title} {Inverted pendulum as low-frequency pre-isolation for advanced
+  gravitational wave detectors},}\ }\href {\doibase 10.1016/j.nima.2007.08.161}
+  {\bibfield  {journal} {\bibinfo  {journal} {Nucl. Instrum. Methods Phys.
+  Res., Sect. A}\ }\textbf {\bibinfo {volume} {582}},\ \bibinfo {pages}
+  {683--692} (\bibinfo {year} {2007})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Baker}\ and\ \citenamefont
+  {Gollub}(1996)}]{BakerGollub1996}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.~L.}\ \bibnamefont
+  {Baker}}\ and\ \bibinfo {author} {\bibfnamefont {J.~P.}\ \bibnamefont
+  {Gollub}},\ }\href {\doibase 10.1017/CBO9781139170864} {\emph {\bibinfo
+  {title} {Chaotic Dynamics: An Introduction}}},\ \bibinfo {edition} {2nd}\
+  ed.\ (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
+  {Cambridge},\ \bibinfo {year} {1996})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Strogatz}(2015)}]{Strogatz2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~H.}\ \bibnamefont
+  {Strogatz}},\ }\href@noop {} {\emph {\bibinfo {title} {Nonlinear Dynamics and
+  Chaos: With Applications to Physics, Biology, Chemistry, and Engineering}}},\
+  \bibinfo {edition} {2nd}\ ed.\ (\bibinfo  {publisher} {Westview Press},\
+  \bibinfo {address} {Boulder, CO},\ \bibinfo {year} {2015})\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Guckenheimer}\ and\ \citenamefont
+  {Holmes}(1983)}]{GuckenheimerHolmes1983}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Guckenheimer}}\ and\ \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Holmes}},\ }\href {\doibase 10.1007/978-1-4612-1140-2} {\emph {\bibinfo
+  {title} {Nonlinear Oscillations, Dynamical Systems, and Bifurcations of
+  Vector Fields}}},\ \bibinfo {series} {Applied Mathematical Sciences},
+  Vol.~\bibinfo {volume} {42}\ (\bibinfo  {publisher} {Springer},\ \bibinfo
+  {address} {New York},\ \bibinfo {year} {1983})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Butikov}(2001)}]{Butikov2001}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.~I.}\ \bibnamefont
+  {Butikov}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {On the dynamic
+  stabilization of an inverted pendulum},}\ }\href {\doibase 10.1119/1.1365403}
+  {\bibfield  {journal} {\bibinfo  {journal} {Am. J. Phys.}\ }\textbf {\bibinfo
+  {volume} {69}},\ \bibinfo {pages} {755--768} (\bibinfo {year}
+  {2001})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Little}\ and\ \citenamefont
+  {Rubin}(2019)}]{LittleRubin2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~J.~A.}\
+  \bibnamefont {Little}}\ and\ \bibinfo {author} {\bibfnamefont {D.~B.}\
+  \bibnamefont {Rubin}},\ }\href@noop {} {\emph {\bibinfo {title} {Statistical
+  Analysis with Missing Data}}},\ \bibinfo {edition} {3rd}\ ed.\ (\bibinfo
+  {publisher} {Wiley},\ \bibinfo {address} {Hoboken, NJ},\ \bibinfo {year}
+  {2019})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2018)\citenamefont {Cao},
+  \citenamefont {Wang}, \citenamefont {Li}, \citenamefont {Zhou}, \citenamefont
+  {Li},\ and\ \citenamefont {Li}}]{Cao2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
+  {Cao}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Wang}}, \bibinfo
+  {author} {\bibfnamefont {J.}~\bibnamefont {Li}}, \bibinfo {author}
+  {\bibfnamefont {H.}~\bibnamefont {Zhou}}, \bibinfo {author} {\bibfnamefont
+  {L.}~\bibnamefont {Li}}, \ and\ \bibinfo {author} {\bibfnamefont
+  {Y.}~\bibnamefont {Li}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{BRITS}: Bidirectional recurrent imputation for time series},}\ }in\
+  \href@noop {} {\emph {\bibinfo {booktitle} {Adv. Neural Inf. Process.
+  Syst.}}},\ Vol.~\bibinfo {volume} {31}\ (\bibinfo {year} {2018})\ pp.\
+  \bibinfo {pages} {6775--6785}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fortuin}\ \emph {et~al.}(2020)\citenamefont
+  {Fortuin}, \citenamefont {Baranchuk}, \citenamefont {R{\"a}tsch},\ and\
+  \citenamefont {Mandt}}]{Fortuin2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Fortuin}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Baranchuk}},
+  \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {R{\"a}tsch}}, \ and\
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Mandt}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {{GP-VAE}: Deep probabilistic time series
+  imputation},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Proc. 23rd
+  Int. Conf. Artif. Intell. Stat. ({AISTATS})}}},\ \bibinfo {series} {Proc.
+  Mach. Learn. Res.}, Vol.\ \bibinfo {volume} {108}\ (\bibinfo {year} {2020})\
+  pp.\ \bibinfo {pages} {1651--1661}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Tashiro}\ \emph {et~al.}(2021)\citenamefont
+  {Tashiro}, \citenamefont {Song}, \citenamefont {Song},\ and\ \citenamefont
+  {Ermon}}]{Tashiro2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Tashiro}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Song}},
+  \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Song}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Ermon}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{CSDI}: Conditional score-based diffusion models
+  for probabilistic time series imputation},}\ }in\ \href@noop {} {\emph
+  {\bibinfo {booktitle} {Adv. Neural Inf. Process. Syst.}}},\ Vol.~\bibinfo
+  {volume} {34}\ (\bibinfo {year} {2021})\ pp.\ \bibinfo {pages}
+  {24804--24816}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Packard}\ \emph {et~al.}(1980)\citenamefont
+  {Packard}, \citenamefont {Crutchfield}, \citenamefont {Farmer},\ and\
+  \citenamefont {Shaw}}]{Packard1980}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.~H.}\ \bibnamefont
+  {Packard}}, \bibinfo {author} {\bibfnamefont {J.~P.}\ \bibnamefont
+  {Crutchfield}}, \bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont
+  {Farmer}}, \ and\ \bibinfo {author} {\bibfnamefont {R.~S.}\ \bibnamefont
+  {Shaw}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Geometry from a
+  time series},}\ }\href {\doibase 10.1103/PhysRevLett.45.712} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo
+  {volume} {45}},\ \bibinfo {pages} {712--716} (\bibinfo {year}
+  {1980})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Takens}(1981)}]{Takens1981}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Takens}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Detecting
+  strange attractors in turbulence},}\ }in\ \href {\doibase 10.1007/BFb0091924}
+  {\emph {\bibinfo {booktitle} {Dynamical Systems and Turbulence, Warwick
+  1980}}},\ \bibinfo {series} {Lecture Notes in Mathematics}, Vol.\ \bibinfo
+  {volume} {898},\ \bibinfo {editor} {edited by\ \bibinfo {editor}
+  {\bibfnamefont {D.}~\bibnamefont {Rand}}\ and\ \bibinfo {editor}
+  {\bibfnamefont {L.-S.}\ \bibnamefont {Young}}}\ (\bibinfo  {publisher}
+  {Springer},\ \bibinfo {address} {Berlin},\ \bibinfo {year} {1981})\ pp.\
+  \bibinfo {pages} {366--381}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sauer}, \citenamefont {Yorke},\ and\ \citenamefont
+  {Casdagli}(1991)}]{Sauer1991}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Sauer}}, \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont {Yorke}}, \
+  and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Casdagli}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Embedology},}\ }\href
+  {\doibase 10.1007/BF01053745} {\bibfield  {journal} {\bibinfo  {journal} {J.
+  Stat. Phys.}\ }\textbf {\bibinfo {volume} {65}},\ \bibinfo {pages} {579--616}
+  (\bibinfo {year} {1991})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Abarbanel}\ \emph {et~al.}(1993)\citenamefont
+  {Abarbanel}, \citenamefont {Brown}, \citenamefont {Sidorowich},\ and\
+  \citenamefont {Tsimring}}]{Abarbanel1993}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.~D.~I.}\
+  \bibnamefont {Abarbanel}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Brown}}, \bibinfo {author} {\bibfnamefont {J.~J.}\ \bibnamefont
+  {Sidorowich}}, \ and\ \bibinfo {author} {\bibfnamefont {L.~S.}\ \bibnamefont
+  {Tsimring}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {The analysis
+  of observed chaotic data in physical systems},}\ }\href {\doibase
+  10.1103/RevModPhys.65.1331} {\bibfield  {journal} {\bibinfo  {journal} {Rev.
+  Mod. Phys.}\ }\textbf {\bibinfo {volume} {65}},\ \bibinfo {pages}
+  {1331--1392} (\bibinfo {year} {1993})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kantz}\ and\ \citenamefont
+  {Schreiber}(2003)}]{KantzSchreiber2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
+  {Kantz}}\ and\ \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Schreiber}},\ }\href {\doibase 10.1017/CBO9780511755798} {\emph {\bibinfo
+  {title} {Nonlinear Time Series Analysis}}},\ \bibinfo {edition} {2nd}\ ed.\
+  (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
+  {Cambridge},\ \bibinfo {year} {2003})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Casdagli}(1989)}]{Casdagli1989}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Casdagli}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Nonlinear
+  prediction of chaotic time series},}\ }\href {\doibase
+  10.1016/0167-2789(89)90074-2} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physica D}\ }\textbf {\bibinfo {volume} {35}},\ \bibinfo {pages} {335--356}
+  (\bibinfo {year} {1989})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Pathak}\ \emph {et~al.}(2018)\citenamefont {Pathak},
+  \citenamefont {Hunt}, \citenamefont {Girvan}, \citenamefont {Lu},\ and\
+  \citenamefont {Ott}}]{Pathak2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Pathak}}, \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Hunt}},
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Girvan}}, \bibinfo
+  {author} {\bibfnamefont {Z.}~\bibnamefont {Lu}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {E.}~\bibnamefont {Ott}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {Model-free prediction of large spatiotemporally chaotic
+  systems from data: A reservoir computing approach},}\ }\href {\doibase
+  10.1103/PhysRevLett.120.024102} {\bibfield  {journal} {\bibinfo  {journal}
+  {Phys. Rev. Lett.}\ }\textbf {\bibinfo {volume} {120}},\ \bibinfo {pages}
+  {024102} (\bibinfo {year} {2018})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sugihara}\ \emph {et~al.}(2012)\citenamefont
+  {Sugihara}, \citenamefont {May}, \citenamefont {Ye}, \citenamefont {Hsieh},
+  \citenamefont {Deyle}, \citenamefont {Fogarty},\ and\ \citenamefont
+  {Munch}}]{Sugihara2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Sugihara}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {May}},
+  \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont {Ye}}, \bibinfo {author}
+  {\bibfnamefont {C.-h.}\ \bibnamefont {Hsieh}}, \bibinfo {author}
+  {\bibfnamefont {E.}~\bibnamefont {Deyle}}, \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Fogarty}}, \ and\ \bibinfo {author} {\bibfnamefont
+  {S.}~\bibnamefont {Munch}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Detecting causality in complex ecosystems},}\ }\href {\doibase
+  10.1126/science.1227079} {\bibfield  {journal} {\bibinfo  {journal}
+  {Science}\ }\textbf {\bibinfo {volume} {338}},\ \bibinfo {pages} {496--500}
+  (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lu}\ \emph {et~al.}(2017)\citenamefont {Lu},
+  \citenamefont {Pathak}, \citenamefont {Hunt}, \citenamefont {Girvan},
+  \citenamefont {Brockett},\ and\ \citenamefont {Ott}}]{Lu2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Z.}~\bibnamefont
+  {Lu}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Pathak}}, \bibinfo
+  {author} {\bibfnamefont {B.}~\bibnamefont {Hunt}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Girvan}}, \bibinfo {author} {\bibfnamefont
+  {R.}~\bibnamefont {Brockett}}, \ and\ \bibinfo {author} {\bibfnamefont
+  {E.}~\bibnamefont {Ott}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Reservoir observers: Model-free inference of unmeasured variables in chaotic
+  systems},}\ }\href {\doibase 10.1063/1.4979665} {\bibfield  {journal}
+  {\bibinfo  {journal} {Chaos}\ }\textbf {\bibinfo {volume} {27}},\ \bibinfo
+  {pages} {041102} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Tang}\ \emph {et~al.}(2020)\citenamefont {Tang},
+  \citenamefont {Kurths}, \citenamefont {Lin}, \citenamefont {Ott},\ and\
+  \citenamefont {Kocarev}}]{Tang2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Tang}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Kurths}},
+  \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Lin}}, \bibinfo {author}
+  {\bibfnamefont {E.}~\bibnamefont {Ott}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {L.}~\bibnamefont {Kocarev}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {Introduction to {Focus Issue}: {When} machine learning
+  meets complex systems: {Networks}, chaos, and nonlinear dynamics},}\ }\href
+  {\doibase 10.1063/5.0016505} {\bibfield  {journal} {\bibinfo  {journal}
+  {Chaos}\ }\textbf {\bibinfo {volume} {30}},\ \bibinfo {pages} {063151}
+  (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wu}\ \emph {et~al.}(2026)\citenamefont {Wu},
+  \citenamefont {Gao}, \citenamefont {Tang}, \citenamefont {An}, \citenamefont
+  {Sun}, \citenamefont {Aihara}, \citenamefont {An},\ and\ \citenamefont
+  {Kurths}}]{Wu2026FPRM}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Wu}}, \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Gao}}, \bibinfo
+  {author} {\bibfnamefont {Y.}~\bibnamefont {Tang}}, \bibinfo {author}
+  {\bibfnamefont {F.}~\bibnamefont {An}}, \bibinfo {author} {\bibfnamefont
+  {X.}~\bibnamefont {Sun}}, \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont
+  {Aihara}}, \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont {An}}, \ and\
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Kurths}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Dynamics-informed machine learning for
+  recovering extensive missing systems dynamics},}\ }\href {\doibase
+  10.1038/s41467-026-77922-1} {\bibfield  {journal} {\bibinfo  {journal} {Nat.
+  Commun.}\ } (\bibinfo {year} {2026}),\ 10.1038/s41467-026-77922-1},\ \bibinfo
+  {note} {accelerated article preview, published online 19 September
+  2026}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Rasmussen}\ and\ \citenamefont
+  {Williams}(2006)}]{Rasmussen2006}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~E.}\ \bibnamefont
+  {Rasmussen}}\ and\ \bibinfo {author} {\bibfnamefont {C.~K.~I.}\ \bibnamefont
+  {Williams}},\ }\href {\doibase 10.7551/mitpress/3206.001.0001} {\emph
+  {\bibinfo {title} {Gaussian Processes for Machine Learning}}}\ (\bibinfo
+  {publisher} {MIT Press},\ \bibinfo {address} {Cambridge, MA},\ \bibinfo
+  {year} {2006})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Letellier}\ and\ \citenamefont
+  {Aguirre}(2002)}]{LetellierAguirre2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Letellier}}\ and\ \bibinfo {author} {\bibfnamefont {L.~A.}\ \bibnamefont
+  {Aguirre}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Investigating
+  nonlinear dynamics from time series: The influence of symmetries and the
+  choice of observables},}\ }\href {\doibase 10.1063/1.1487570} {\bibfield
+  {journal} {\bibinfo  {journal} {Chaos}\ }\textbf {\bibinfo {volume} {12}},\
+  \bibinfo {pages} {549--558} (\bibinfo {year} {2002})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Letellier}, \citenamefont {Aguirre},\ and\
+  \citenamefont {Maquet}(2005)}]{Letellier2005}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Letellier}}, \bibinfo {author} {\bibfnamefont {L.~A.}\ \bibnamefont
+  {Aguirre}}, \ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Maquet}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Relation between
+  observability and differential embeddings for nonlinear dynamics},}\ }\href
+  {\doibase 10.1103/PhysRevE.71.066213} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. E}\ }\textbf {\bibinfo {volume} {71}},\ \bibinfo
+  {pages} {066213} (\bibinfo {year} {2005})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Papamakarios}\ \emph {et~al.}(2021)\citenamefont
+  {Papamakarios}, \citenamefont {Nalisnick}, \citenamefont {Rezende},
+  \citenamefont {Mohamed},\ and\ \citenamefont
+  {Lakshminarayanan}}]{Papamakarios2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Papamakarios}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Nalisnick}}, \bibinfo {author} {\bibfnamefont {D.~J.}\ \bibnamefont
+  {Rezende}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Mohamed}}, \
+  and\ \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Lakshminarayanan}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Normalizing flows for
+  probabilistic modeling and inference},}\ }\href
+  {https://jmlr.org/papers/v22/19-1028.html} {\bibfield  {journal} {\bibinfo
+  {journal} {J. Mach. Learn. Res.}\ }\textbf {\bibinfo {volume} {22}},\
+  \bibinfo {pages} {1--64} (\bibinfo {year} {2021})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Durkan}\ \emph {et~al.}(2019)\citenamefont {Durkan},
+  \citenamefont {Bekasov}, \citenamefont {Murray},\ and\ \citenamefont
+  {Papamakarios}}]{Durkan2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Durkan}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Bekasov}},
+  \bibinfo {author} {\bibfnamefont {I.}~\bibnamefont {Murray}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {G.}~\bibnamefont {Papamakarios}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Neural spline flows},}\ }in\ \href@noop
+  {} {\emph {\bibinfo {booktitle} {Adv. Neural Inf. Process. Syst.}}},\
+  Vol.~\bibinfo {volume} {32}\ (\bibinfo {year} {2019})\ pp.\ \bibinfo {pages}
+  {7511--7522}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kingma}\ and\ \citenamefont
+  {Welling}(2014)}]{Kingma2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
+  {Kingma}}\ and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Welling}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Auto-encoding
+  variational {B}ayes},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle}
+  {Proc. 2nd Int. Conf. Learn. Represent. ({ICLR})}}}\ (\bibinfo {year}
+  {2014})\ \bibinfo {note} {arXiv:1312.6114}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sohn}, \citenamefont {Lee},\ and\ \citenamefont
+  {Yan}(2015)}]{Sohn2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {K.}~\bibnamefont
+  {Sohn}}, \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont {Lee}}, \ and\
+  \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Yan}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Learning structured output
+  representation using deep conditional generative models},}\ }in\ \href@noop
+  {} {\emph {\bibinfo {booktitle} {Adv. Neural Inf. Process. Syst.}}},\
+  Vol.~\bibinfo {volume} {28}\ (\bibinfo {year} {2015})\ pp.\ \bibinfo {pages}
+  {3483--3491}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ho}, \citenamefont {Jain},\ and\ \citenamefont
+  {Abbeel}(2020)}]{Ho2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Ho}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Jain}}, \ and\
+  \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Abbeel}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Denoising diffusion probabilistic
+  models},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Adv. Neural Inf.
+  Process. Syst.}}},\ Vol.~\bibinfo {volume} {33}\ (\bibinfo {year} {2020})\
+  pp.\ \bibinfo {pages} {6840--6851}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nichol}\ and\ \citenamefont
+  {Dhariwal}(2021)}]{NicholDhariwal2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~Q.}\ \bibnamefont
+  {Nichol}}\ and\ \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Dhariwal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Improved
+  denoising diffusion probabilistic models},}\ }in\ \href@noop {} {\emph
+  {\bibinfo {booktitle} {Proc. 38th Int. Conf. Mach. Learn. ({ICML})}}},\
+  \bibinfo {series} {Proc. Mach. Learn. Res.}, Vol.\ \bibinfo {volume} {139}\
+  (\bibinfo {year} {2021})\ pp.\ \bibinfo {pages} {8162--8171}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Raissi}, \citenamefont {Perdikaris},\ and\
+  \citenamefont {Karniadakis}(2019)}]{Raissi2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Raissi}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Perdikaris}},
+  \ and\ \bibinfo {author} {\bibfnamefont {G.~E.}\ \bibnamefont
+  {Karniadakis}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Physics-informed neural networks: A deep learning framework for solving
+  forward and inverse problems involving nonlinear partial differential
+  equations},}\ }\href {\doibase 10.1016/j.jcp.2018.10.045} {\bibfield
+  {journal} {\bibinfo  {journal} {J. Comput. Phys.}\ }\textbf {\bibinfo
+  {volume} {378}},\ \bibinfo {pages} {686--707} (\bibinfo {year}
+  {2019})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Karniadakis}\ \emph {et~al.}(2021)\citenamefont
+  {Karniadakis}, \citenamefont {Kevrekidis}, \citenamefont {Lu}, \citenamefont
+  {Perdikaris}, \citenamefont {Wang},\ and\ \citenamefont
+  {Yang}}]{Karniadakis2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.~E.}\ \bibnamefont
+  {Karniadakis}}, \bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
+  {Kevrekidis}}, \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Lu}},
+  \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Perdikaris}}, \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Wang}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {L.}~\bibnamefont {Yang}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {Physics-informed machine learning},}\ }\href {\doibase
+  10.1038/s42254-021-00314-5} {\bibfield  {journal} {\bibinfo  {journal} {Nat.
+  Rev. Phys.}\ }\textbf {\bibinfo {volume} {3}},\ \bibinfo {pages} {422--440}
+  (\bibinfo {year} {2021})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Greydanus}, \citenamefont {Dzamba},\ and\
+  \citenamefont {Yosinski}(2019)}]{Greydanus2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Greydanus}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Dzamba}}, \
+  and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Yosinski}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Hamiltonian neural
+  networks},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Adv. Neural
+  Inf. Process. Syst.}}},\ Vol.~\bibinfo {volume} {32}\ (\bibinfo {year}
+  {2019})\ pp.\ \bibinfo {pages} {15379--15389}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cranmer}\ \emph {et~al.}(2020)\citenamefont
+  {Cranmer}, \citenamefont {Greydanus}, \citenamefont {Hoyer}, \citenamefont
+  {Battaglia}, \citenamefont {Spergel},\ and\ \citenamefont
+  {Ho}}]{Cranmer2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Cranmer}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Greydanus}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Hoyer}}, \bibinfo
+  {author} {\bibfnamefont {P.}~\bibnamefont {Battaglia}}, \bibinfo {author}
+  {\bibfnamefont {D.}~\bibnamefont {Spergel}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {S.}~\bibnamefont {Ho}},\ }\href@noop {} {\enquote {\bibinfo
+  {title} {Lagrangian neural networks},}\ } (\bibinfo {year} {2020}),\ \bibinfo
+  {note} {arXiv:2003.04630}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Jin}\ \emph {et~al.}(2020)\citenamefont {Jin},
+  \citenamefont {Zhang}, \citenamefont {Zhu}, \citenamefont {Tang},\ and\
+  \citenamefont {Karniadakis}}]{Jin2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Jin}}, \bibinfo {author} {\bibfnamefont {Z.}~\bibnamefont {Zhang}}, \bibinfo
+  {author} {\bibfnamefont {A.}~\bibnamefont {Zhu}}, \bibinfo {author}
+  {\bibfnamefont {Y.}~\bibnamefont {Tang}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {G.~E.}\ \bibnamefont {Karniadakis}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{SympNets}: Intrinsic structure-preserving
+  symplectic networks for identifying {H}amiltonian systems},}\ }\href
+  {\doibase 10.1016/j.neunet.2020.08.017} {\bibfield  {journal} {\bibinfo
+  {journal} {Neural Netw.}\ }\textbf {\bibinfo {volume} {132}},\ \bibinfo
+  {pages} {166--179} (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Krishnapriyan}\ \emph {et~al.}(2021)\citenamefont
+  {Krishnapriyan}, \citenamefont {Gholami}, \citenamefont {Zhe}, \citenamefont
+  {Kirby},\ and\ \citenamefont {Mahoney}}]{Krishnapriyan2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~S.}\ \bibnamefont
+  {Krishnapriyan}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Gholami}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zhe}},
+  \bibinfo {author} {\bibfnamefont {R.~M.}\ \bibnamefont {Kirby}}, \ and\
+  \bibinfo {author} {\bibfnamefont {M.~W.}\ \bibnamefont {Mahoney}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Characterizing possible
+  failure modes in physics-informed neural networks},}\ }in\ \href@noop {}
+  {\emph {\bibinfo {booktitle} {Adv. Neural Inf. Process. Syst.}}},\
+  Vol.~\bibinfo {volume} {34}\ (\bibinfo {year} {2021})\ pp.\ \bibinfo {pages}
+  {26548--26560}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wang}, \citenamefont {Teng},\ and\ \citenamefont
+  {Perdikaris}(2021)}]{WangTengPerdikaris2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Wang}}, \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Teng}}, \ and\
+  \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Perdikaris}},\ }\bibfield
+   {title} {\enquote {\bibinfo {title} {Understanding and mitigating gradient
+  flow pathologies in physics-informed neural networks},}\ }\href {\doibase
+  10.1137/20M1318043} {\bibfield  {journal} {\bibinfo  {journal} {SIAM J. Sci.
+  Comput.}\ }\textbf {\bibinfo {volume} {43}},\ \bibinfo {pages} {A3055--A3081}
+  (\bibinfo {year} {2021})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Goldstein}, \citenamefont {Poole},\ and\
+  \citenamefont {Safko}(2002)}]{Goldstein2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
+  {Goldstein}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Poole}}, \
+  and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Safko}},\
+  }\href@noop {} {\emph {\bibinfo {title} {Classical Mechanics}}},\ \bibinfo
+  {edition} {3rd}\ ed.\ (\bibinfo  {publisher} {Addison-Wesley},\ \bibinfo
+  {address} {San Francisco},\ \bibinfo {year} {2002})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hairer}, \citenamefont {N{\o}rsett},\ and\
+  \citenamefont {Wanner}(1993)}]{HairerNW1993}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Hairer}}, \bibinfo {author} {\bibfnamefont {S.~P.}\ \bibnamefont
+  {N{\o}rsett}}, \ and\ \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Wanner}},\ }\href {\doibase 10.1007/978-3-540-78862-1} {\emph {\bibinfo
+  {title} {Solving Ordinary Differential Equations {I}: Nonstiff Problems}}},\
+  \bibinfo {edition} {2nd}\ ed.,\ \bibinfo {series} {Springer Series in
+  Computational Mathematics}, Vol.~\bibinfo {volume} {8}\ (\bibinfo
+  {publisher} {Springer},\ \bibinfo {address} {Berlin},\ \bibinfo {year}
+  {1993})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Prince}\ and\ \citenamefont
+  {Dormand}(1981)}]{PrinceDormand1981}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.~J.}\ \bibnamefont
+  {Prince}}\ and\ \bibinfo {author} {\bibfnamefont {J.~R.}\ \bibnamefont
+  {Dormand}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {High order
+  embedded {R}unge--{K}utta formulae},}\ }\href {\doibase
+  10.1016/0771-050X(81)90010-3} {\bibfield  {journal} {\bibinfo  {journal} {J.
+  Comput. Appl. Math.}\ }\textbf {\bibinfo {volume} {7}},\ \bibinfo {pages}
+  {67--75} (\bibinfo {year} {1981})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Virtanen}\ \emph {et~al.}(2020)\citenamefont
+  {Virtanen} \emph {et~al.}}]{Virtanen2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Virtanen}} \emph {et~al.},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{SciPy} 1.0: fundamental algorithms for scientific computing in {P}ython},}\
+  }\href {\doibase 10.1038/s41592-019-0686-2} {\bibfield  {journal} {\bibinfo
+  {journal} {Nat. Methods}\ }\textbf {\bibinfo {volume} {17}},\ \bibinfo
+  {pages} {261--272} (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Verlet}(1967)}]{Verlet1967}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {L.}~\bibnamefont
+  {Verlet}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Computer
+  ``experiments'' on classical fluids. {I}. {T}hermodynamical properties of
+  {L}ennard-{J}ones molecules},}\ }\href {\doibase 10.1103/PhysRev.159.98}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev.}\ }\textbf {\bibinfo
+  {volume} {159}},\ \bibinfo {pages} {98--103} (\bibinfo {year}
+  {1967})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Swope}\ \emph {et~al.}(1982)\citenamefont {Swope},
+  \citenamefont {Andersen}, \citenamefont {Berens},\ and\ \citenamefont
+  {Wilson}}]{Swope1982}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.~C.}\ \bibnamefont
+  {Swope}}, \bibinfo {author} {\bibfnamefont {H.~C.}\ \bibnamefont {Andersen}},
+  \bibinfo {author} {\bibfnamefont {P.~H.}\ \bibnamefont {Berens}}, \ and\
+  \bibinfo {author} {\bibfnamefont {K.~R.}\ \bibnamefont {Wilson}},\ }\bibfield
+   {title} {\enquote {\bibinfo {title} {A computer simulation method for the
+  calculation of equilibrium constants for the formation of physical clusters
+  of molecules: Application to small water clusters},}\ }\href {\doibase
+  10.1063/1.442716} {\bibfield  {journal} {\bibinfo  {journal} {J. Chem.
+  Phys.}\ }\textbf {\bibinfo {volume} {76}},\ \bibinfo {pages} {637--649}
+  (\bibinfo {year} {1982})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kahan}(1965)}]{Kahan1965}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
+  {Kahan}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Further remarks
+  on reducing truncation errors},}\ }\href {\doibase 10.1145/363707.363723}
+  {\bibfield  {journal} {\bibinfo  {journal} {Commun. ACM}\ }\textbf {\bibinfo
+  {volume} {8}},\ \bibinfo {pages} {40} (\bibinfo {year} {1965})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Benettin}\ and\ \citenamefont
+  {Giorgilli}(1994)}]{BenettinGiorgilli1994}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Benettin}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Giorgilli}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {On the
+  {H}amiltonian interpolation of near-to-the-identity symplectic mappings with
+  application to symplectic integration algorithms},}\ }\href {\doibase
+  10.1007/BF02188219} {\bibfield  {journal} {\bibinfo  {journal} {J. Stat.
+  Phys.}\ }\textbf {\bibinfo {volume} {74}},\ \bibinfo {pages} {1117--1143}
+  (\bibinfo {year} {1994})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hairer}, \citenamefont {Lubich},\ and\ \citenamefont
+  {Wanner}(2006)}]{HairerLW2006}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Hairer}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Lubich}}, \
+  and\ \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Wanner}},\ }\href
+  {\doibase 10.1007/3-540-30666-8} {\emph {\bibinfo {title} {Geometric
+  Numerical Integration: Structure-Preserving Algorithms for Ordinary
+  Differential Equations}}},\ \bibinfo {edition} {2nd}\ ed.,\ \bibinfo {series}
+  {Springer Series in Computational Mathematics}, Vol.~\bibinfo {volume} {31}\
+  (\bibinfo  {publisher} {Springer},\ \bibinfo {address} {Berlin},\ \bibinfo
+  {year} {2006})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Brouwer}(1937)}]{Brouwer1937}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Brouwer}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {On the
+  accumulation of errors in numerical integration},}\ }\href {\doibase
+  10.1086/105423} {\bibfield  {journal} {\bibinfo  {journal} {Astron. J.}\
+  }\textbf {\bibinfo {volume} {46}},\ \bibinfo {pages} {149--153} (\bibinfo
+  {year} {1937})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Leimkuhler}\ and\ \citenamefont
+  {Matthews}(2013)}]{LeimkuhlerMatthews2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {B.}~\bibnamefont
+  {Leimkuhler}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Matthews}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Rational
+  construction of stochastic numerical methods for molecular sampling},}\
+  }\href {\doibase 10.1093/amrx/abs010} {\bibfield  {journal} {\bibinfo
+  {journal} {Appl. Math. Res. Express}\ }\textbf {\bibinfo {volume} {2013}},\
+  \bibinfo {pages} {34--56} (\bibinfo {year} {2013})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Crameri}, \citenamefont {Shephard},\ and\
+  \citenamefont {Heron}(2020)}]{Crameri2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Crameri}}, \bibinfo {author} {\bibfnamefont {G.~E.}\ \bibnamefont
+  {Shephard}}, \ and\ \bibinfo {author} {\bibfnamefont {P.~J.}\ \bibnamefont
+  {Heron}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {The misuse of
+  colour in science communication},}\ }\href {\doibase
+  10.1038/s41467-020-19160-7} {\bibfield  {journal} {\bibinfo  {journal} {Nat.
+  Commun.}\ }\textbf {\bibinfo {volume} {11}},\ \bibinfo {pages} {5444}
+  (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Swift}\ and\ \citenamefont
+  {Wiesenfeld}(1984)}]{SwiftWiesenfeld1984}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~W.}\ \bibnamefont
+  {Swift}}\ and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont
+  {Wiesenfeld}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Suppression
+  of period doubling in symmetric systems},}\ }\href {\doibase
+  10.1103/PhysRevLett.52.705} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev. Lett.}\ }\textbf {\bibinfo {volume} {52}},\ \bibinfo {pages} {705--708}
+  (\bibinfo {year} {1984})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Parker}\ and\ \citenamefont
+  {Chua}(1989)}]{ParkerChua1989}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~S.}\ \bibnamefont
+  {Parker}}\ and\ \bibinfo {author} {\bibfnamefont {L.~O.}\ \bibnamefont
+  {Chua}},\ }\href@noop {} {\emph {\bibinfo {title} {Practical Numerical
+  Algorithms for Chaotic Systems}}}\ (\bibinfo  {publisher} {Springer},\
+  \bibinfo {address} {New York},\ \bibinfo {year} {1989})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kuznetsov}(2004)}]{Kuznetsov2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.~A.}\ \bibnamefont
+  {Kuznetsov}},\ }\href@noop {} {\emph {\bibinfo {title} {Elements of Applied
+  Bifurcation Theory}}},\ \bibinfo {edition} {3rd}\ ed.\ (\bibinfo  {publisher}
+  {Springer},\ \bibinfo {address} {New York},\ \bibinfo {year}
+  {2004})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Feigenbaum}(1978)}]{Feigenbaum1978}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~J.}\ \bibnamefont
+  {Feigenbaum}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Quantitative
+  universality for a class of nonlinear transformations},}\ }\href {\doibase
+  10.1007/BF01020332} {\bibfield  {journal} {\bibinfo  {journal} {J. Stat.
+  Phys.}\ }\textbf {\bibinfo {volume} {19}},\ \bibinfo {pages} {25--52}
+  (\bibinfo {year} {1978})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Benettin}\ \emph
+  {et~al.}(1980{\natexlab{a}})\citenamefont {Benettin}, \citenamefont
+  {Galgani}, \citenamefont {Giorgilli},\ and\ \citenamefont
+  {Strelcyn}}]{Benettin1980}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Benettin}}, \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Galgani}},
+  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Giorgilli}}, \ and\
+  \bibinfo {author} {\bibfnamefont {J.-M.}\ \bibnamefont {Strelcyn}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Lyapunov characteristic
+  exponents for smooth dynamical systems and for {H}amiltonian systems; a
+  method for computing all of them. {P}art 1: Theory},}\ }\href {\doibase
+  10.1007/BF02128236} {\bibfield  {journal} {\bibinfo  {journal} {Meccanica}\
+  }\textbf {\bibinfo {volume} {15}},\ \bibinfo {pages} {9--20} (\bibinfo {year}
+  {1980}{\natexlab{a}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Benettin}\ \emph
+  {et~al.}(1980{\natexlab{b}})\citenamefont {Benettin}, \citenamefont
+  {Galgani}, \citenamefont {Giorgilli},\ and\ \citenamefont
+  {Strelcyn}}]{Benettin1980b}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Benettin}}, \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Galgani}},
+  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Giorgilli}}, \ and\
+  \bibinfo {author} {\bibfnamefont {J.-M.}\ \bibnamefont {Strelcyn}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Lyapunov characteristic
+  exponents for smooth dynamical systems and for {H}amiltonian systems; a
+  method for computing all of them. {P}art 2: Numerical application},}\ }\href
+  {\doibase 10.1007/BF02128237} {\bibfield  {journal} {\bibinfo  {journal}
+  {Meccanica}\ }\textbf {\bibinfo {volume} {15}},\ \bibinfo {pages} {21--30}
+  (\bibinfo {year} {1980}{\natexlab{b}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Melnikov}(1963)}]{Melnikov1963}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.~K.}\ \bibnamefont
+  {Melnikov}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {On the
+  stability of the center for time-periodic perturbations},}\ }\href@noop {}
+  {\bibfield  {journal} {\bibinfo  {journal} {Trans. Moscow Math. Soc.}\
+  }\textbf {\bibinfo {volume} {12}},\ \bibinfo {pages} {1--57} (\bibinfo {year}
+  {1963})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kaplan}\ and\ \citenamefont
+  {Yorke}(1979)}]{KaplanYorke1979}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~L.}\ \bibnamefont
+  {Kaplan}}\ and\ \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
+  {Yorke}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Chaotic behavior
+  of multidimensional difference equations},}\ }in\ \href {\doibase
+  10.1007/BFb0064319} {\emph {\bibinfo {booktitle} {Functional Differential
+  Equations and Approximation of Fixed Points}}},\ \bibinfo {series} {Lecture
+  Notes in Mathematics}, Vol.\ \bibinfo {volume} {730},\ \bibinfo {editor}
+  {edited by\ \bibinfo {editor} {\bibfnamefont {H.-O.}\ \bibnamefont
+  {Peitgen}}\ and\ \bibinfo {editor} {\bibfnamefont {H.-O.}\ \bibnamefont
+  {Walther}}}\ (\bibinfo  {publisher} {Springer},\ \bibinfo {address}
+  {Berlin},\ \bibinfo {year} {1979})\ pp.\ \bibinfo {pages}
+  {204--227}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Grassberger}\ and\ \citenamefont
+  {Procaccia}(1983)}]{Grassberger1983}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Grassberger}}\ and\ \bibinfo {author} {\bibfnamefont {I.}~\bibnamefont
+  {Procaccia}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Characterization of strange attractors},}\ }\href {\doibase
+  10.1103/PhysRevLett.50.346} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev. Lett.}\ }\textbf {\bibinfo {volume} {50}},\ \bibinfo {pages} {346--349}
+  (\bibinfo {year} {1983})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Stark}(1999)}]{Stark1999}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Stark}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Delay embeddings
+  for forced systems. {I}. {D}eterministic forcing},}\ }\href {\doibase
+  10.1007/s003329900072} {\bibfield  {journal} {\bibinfo  {journal} {J.
+  Nonlinear Sci.}\ }\textbf {\bibinfo {volume} {9}},\ \bibinfo {pages}
+  {255--332} (\bibinfo {year} {1999})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fraser}\ and\ \citenamefont
+  {Swinney}(1986)}]{FraserSwinney1986}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~M.}\ \bibnamefont
+  {Fraser}}\ and\ \bibinfo {author} {\bibfnamefont {H.~L.}\ \bibnamefont
+  {Swinney}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Independent
+  coordinates for strange attractors from mutual information},}\ }\href
+  {\doibase 10.1103/PhysRevA.33.1134} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {33}},\ \bibinfo
+  {pages} {1134--1140} (\bibinfo {year} {1986})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kennel}, \citenamefont {Brown},\ and\ \citenamefont
+  {Abarbanel}(1992)}]{Kennel1992}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~B.}\ \bibnamefont
+  {Kennel}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {Brown}}, \
+  and\ \bibinfo {author} {\bibfnamefont {H.~D.~I.}\ \bibnamefont {Abarbanel}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Determining embedding
+  dimension for phase-space reconstruction using a geometrical construction},}\
+  }\href {\doibase 10.1103/PhysRevA.45.3403} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {45}},\ \bibinfo
+  {pages} {3403--3411} (\bibinfo {year} {1992})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Pecora}, \citenamefont {Carroll},\ and\ \citenamefont
+  {Heagy}(1995)}]{Pecora1995}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {L.~M.}\ \bibnamefont
+  {Pecora}}, \bibinfo {author} {\bibfnamefont {T.~L.}\ \bibnamefont {Carroll}},
+  \ and\ \bibinfo {author} {\bibfnamefont {J.~F.}\ \bibnamefont {Heagy}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Statistics for mathematical
+  properties of maps between time series embeddings},}\ }\href {\doibase
+  10.1103/PhysRevE.52.3420} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev. E}\ }\textbf {\bibinfo {volume} {52}},\ \bibinfo {pages} {3420--3439}
+  (\bibinfo {year} {1995})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Rulkov}\ \emph {et~al.}(1995)\citenamefont {Rulkov},
+  \citenamefont {Sushchik}, \citenamefont {Tsimring},\ and\ \citenamefont
+  {Abarbanel}}]{Rulkov1995}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.~F.}\ \bibnamefont
+  {Rulkov}}, \bibinfo {author} {\bibfnamefont {M.~M.}\ \bibnamefont
+  {Sushchik}}, \bibinfo {author} {\bibfnamefont {L.~S.}\ \bibnamefont
+  {Tsimring}}, \ and\ \bibinfo {author} {\bibfnamefont {H.~D.~I.}\ \bibnamefont
+  {Abarbanel}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Generalized
+  synchronization of chaos in directionally coupled chaotic systems},}\ }\href
+  {\doibase 10.1103/PhysRevE.51.980} {\bibfield  {journal} {\bibinfo  {journal}
+  {Phys. Rev. E}\ }\textbf {\bibinfo {volume} {51}},\ \bibinfo {pages}
+  {980--994} (\bibinfo {year} {1995})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Theiler}(1986)}]{Theiler1986}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Theiler}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Spurious
+  dimension from correlation algorithms applied to limited time-series data},}\
+  }\href {\doibase 10.1103/PhysRevA.34.2427} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {34}},\ \bibinfo
+  {pages} {2427--2432} (\bibinfo {year} {1986})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Rozet}\ \emph {et~al.}(2022)\citenamefont {Rozet}
+  \emph {et~al.}}]{zuko}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Rozet}} \emph {et~al.},\ }\href {\doibase 10.5281/zenodo.7625672} {\enquote
+  {\bibinfo {title} {Zuko: Normalizing flows in {PyTorch}},}\ } (\bibinfo
+  {year} {2022}),\ \bibinfo {note}
+  {\url{https://github.com/probabilists/zuko}}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Paszke}\ \emph {et~al.}(2019)\citenamefont {Paszke}
+  \emph {et~al.}}]{Paszke2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Paszke}} \emph {et~al.},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{PyTorch}: An imperative style, high-performance deep learning library},}\
+  }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Adv. Neural Inf. Process.
+  Syst.}}},\ Vol.~\bibinfo {volume} {32}\ (\bibinfo {year} {2019})\ pp.\
+  \bibinfo {pages} {8024--8035}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cornish}\ \emph {et~al.}(2020)\citenamefont
+  {Cornish}, \citenamefont {Caterini}, \citenamefont {Deligiannidis},\ and\
+  \citenamefont {Doucet}}]{Cornish2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Cornish}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Caterini}},
+  \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Deligiannidis}}, \ and\
+  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Doucet}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Relaxing bijectivity constraints with
+  continuously indexed normalising flows},}\ }in\ \href@noop {} {\emph
+  {\bibinfo {booktitle} {Proc. 37th Int. Conf. Mach. Learn. ({ICML})}}},\
+  \bibinfo {series} {Proc. Mach. Learn. Res.}, Vol.\ \bibinfo {volume} {119}\
+  (\bibinfo {year} {2020})\ pp.\ \bibinfo {pages} {2133--2143}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Savitzky}\ and\ \citenamefont
+  {Golay}(1964)}]{SavitzkyGolay1964}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Savitzky}}\ and\ \bibinfo {author} {\bibfnamefont {M.~J.~E.}\ \bibnamefont
+  {Golay}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Smoothing and
+  differentiation of data by simplified least squares procedures},}\ }\href
+  {\doibase 10.1021/ac60214a047} {\bibfield  {journal} {\bibinfo  {journal}
+  {Anal. Chem.}\ }\textbf {\bibinfo {volume} {36}},\ \bibinfo {pages}
+  {1627--1639} (\bibinfo {year} {1964})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kramers}(1940)}]{Kramers1940}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.~A.}\ \bibnamefont
+  {Kramers}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Brownian motion
+  in a field of force and the diffusion model of chemical reactions},}\ }\href
+  {\doibase 10.1016/S0031-8914(40)90098-2} {\bibfield  {journal} {\bibinfo
+  {journal} {Physica}\ }\textbf {\bibinfo {volume} {7}},\ \bibinfo {pages}
+  {284--304} (\bibinfo {year} {1940})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Stark}\ \emph {et~al.}(2003)\citenamefont {Stark},
+  \citenamefont {Broomhead}, \citenamefont {Davies},\ and\ \citenamefont
+  {Huke}}]{Stark2003}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Stark}}, \bibinfo {author} {\bibfnamefont {D.~S.}\ \bibnamefont
+  {Broomhead}}, \bibinfo {author} {\bibfnamefont {M.~E.}\ \bibnamefont
+  {Davies}}, \ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Huke}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Delay embeddings
+  for forced systems. {II}. {S}tochastic forcing},}\ }\href {\doibase
+  10.1007/s00332-003-0534-4} {\bibfield  {journal} {\bibinfo  {journal} {J.
+  Nonlinear Sci.}\ }\textbf {\bibinfo {volume} {13}},\ \bibinfo {pages}
+  {519--577} (\bibinfo {year} {2003})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Gneiting}\ and\ \citenamefont
+  {Raftery}(2007)}]{Gneiting2007}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Gneiting}}\ and\ \bibinfo {author} {\bibfnamefont {A.~E.}\ \bibnamefont
+  {Raftery}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Strictly proper
+  scoring rules, prediction, and estimation},}\ }\href {\doibase
+  10.1198/016214506000001437} {\bibfield  {journal} {\bibinfo  {journal} {J.
+  Am. Stat. Assoc.}\ }\textbf {\bibinfo {volume} {102}},\ \bibinfo {pages}
+  {359--378} (\bibinfo {year} {2007})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Gneiting}, \citenamefont {Balabdaoui},\ and\
+  \citenamefont {Raftery}(2007)}]{GneitingBalabdaoui2007}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Gneiting}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Balabdaoui}}, \ and\ \bibinfo {author} {\bibfnamefont {A.~E.}\ \bibnamefont
+  {Raftery}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Probabilistic
+  forecasts, calibration and sharpness},}\ }\href {\doibase
+  10.1111/j.1467-9868.2007.00587.x} {\bibfield  {journal} {\bibinfo  {journal}
+  {J. R. Stat. Soc. Ser. B}\ }\textbf {\bibinfo {volume} {69}},\ \bibinfo
+  {pages} {243--268} (\bibinfo {year} {2007})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bonneel}\ \emph {et~al.}(2015)\citenamefont
+  {Bonneel}, \citenamefont {Rabin}, \citenamefont {Peyr{\'e}},\ and\
+  \citenamefont {Pfister}}]{Bonneel2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Bonneel}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Rabin}},
+  \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Peyr{\'e}}}, \ and\
+  \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont {Pfister}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Sliced and {R}adon {W}asserstein
+  barycenters of measures},}\ }\href {\doibase 10.1007/s10851-014-0506-3}
+  {\bibfield  {journal} {\bibinfo  {journal} {J. Math. Imaging Vis.}\ }\textbf
+  {\bibinfo {volume} {51}},\ \bibinfo {pages} {22--45} (\bibinfo {year}
+  {2015})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Song}, \citenamefont {Meng},\ and\ \citenamefont
+  {Ermon}(2021)}]{SongMengErmon2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Song}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Meng}}, \ and\
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Ermon}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Denoising diffusion implicit models},}\
+  }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Proc. 9th Int. Conf. Learn.
+  Represent. ({ICLR})}}}\ (\bibinfo {year} {2021})\ \bibinfo {note}
+  {arXiv:2010.02502}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bastek}, \citenamefont {Sun},\ and\ \citenamefont
+  {Kochmann}(2025)}]{Bastek2025}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.-H.}\ \bibnamefont
+  {Bastek}}, \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Sun}}, \ and\
+  \bibinfo {author} {\bibfnamefont {D.~M.}\ \bibnamefont {Kochmann}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Physics-informed diffusion
+  models},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Proc. 13th Int.
+  Conf. Learn. Represent. ({ICLR})}}}\ (\bibinfo {year} {2025})\ \bibinfo
+  {note} {arXiv:2403.14404}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Song}\ \emph {et~al.}(2021)\citenamefont {Song},
+  \citenamefont {Sohl-Dickstein}, \citenamefont {Kingma}, \citenamefont
+  {Kumar}, \citenamefont {Ermon},\ and\ \citenamefont {Poole}}]{Song2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Song}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Sohl-Dickstein}}, \bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
+  {Kingma}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Kumar}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Ermon}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {B.}~\bibnamefont {Poole}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {Score-based generative modeling through
+  stochastic differential equations},}\ }in\ \href@noop {} {\emph {\bibinfo
+  {booktitle} {Proc. 9th Int. Conf. Learn. Represent. ({ICLR})}}}\ (\bibinfo
+  {year} {2021})\ \bibinfo {note} {arXiv:2011.13456}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kuleshov}, \citenamefont {Fenner},\ and\
+  \citenamefont {Ermon}(2018)}]{Kuleshov2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Kuleshov}}, \bibinfo {author} {\bibfnamefont {N.}~\bibnamefont {Fenner}}, \
+  and\ \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Ermon}},\ }\bibfield
+   {title} {\enquote {\bibinfo {title} {Accurate uncertainties for deep
+  learning using calibrated regression},}\ }in\ \href@noop {} {\emph {\bibinfo
+  {booktitle} {Proc. 35th Int. Conf. Mach. Learn. ({ICML})}}},\ \bibinfo
+  {series} {Proc. Mach. Learn. Res.}, Vol.~\bibinfo {volume} {80}\ (\bibinfo
+  {year} {2018})\ pp.\ \bibinfo {pages} {2796--2804}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Harris}\ \emph {et~al.}(2020)\citenamefont {Harris}
+  \emph {et~al.}}]{Harris2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~R.}\ \bibnamefont
+  {Harris}} \emph {et~al.},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Array programming with {NumPy}},}\ }\href {\doibase
+  10.1038/s41586-020-2649-2} {\bibfield  {journal} {\bibinfo  {journal}
+  {Nature}\ }\textbf {\bibinfo {volume} {585}},\ \bibinfo {pages} {357--362}
+  (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lam}, \citenamefont {Pitrou},\ and\ \citenamefont
+  {Seibert}(2015)}]{Lam2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~K.}\ \bibnamefont
+  {Lam}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Pitrou}}, \ and\
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Seibert}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Numba: A {LLVM}-based {P}ython {JIT}
+  compiler},}\ }in\ \href {\doibase 10.1145/2833157.2833162} {\emph {\bibinfo
+  {booktitle} {Proc. 2nd Workshop LLVM Compiler Infrastructure HPC}}}\
+  (\bibinfo  {publisher} {ACM},\ \bibinfo {address} {New York},\ \bibinfo
+  {year} {2015})\ pp.\ \bibinfo {pages} {1--6}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Pedregosa}\ \emph {et~al.}(2011)\citenamefont
+  {Pedregosa} \emph {et~al.}}]{Pedregosa2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Pedregosa}} \emph {et~al.},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Scikit-learn: Machine learning in {P}ython},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {J. Mach. Learn. Res.}\ }\textbf {\bibinfo
+  {volume} {12}},\ \bibinfo {pages} {2825--2830} (\bibinfo {year}
+  {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hunter}(2007)}]{Hunter2007}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont
+  {Hunter}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Matplotlib: A
+  {2D} graphics environment},}\ }\href {\doibase 10.1109/MCSE.2007.55}
+  {\bibfield  {journal} {\bibinfo  {journal} {Comput. Sci. Eng.}\ }\textbf
+  {\bibinfo {volume} {9}},\ \bibinfo {pages} {90--95} (\bibinfo {year}
+  {2007})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Esquembre}(2004)}]{Esquembre2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Esquembre}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Easy {J}ava
+  {S}imulations: a software tool to create scientific simulations in {J}ava},}\
+  }\href {\doibase 10.1016/S0010-4655(03)00440-5} {\bibfield  {journal}
+  {\bibinfo  {journal} {Comput. Phys. Commun.}\ }\textbf {\bibinfo {volume}
+  {156}},\ \bibinfo {pages} {199--204} (\bibinfo {year} {2004})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Christian}, \citenamefont {Esquembre},\ and\
+  \citenamefont {Barbato}(2011)}]{Christian2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
+  {Christian}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Esquembre}}, \ and\ \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont
+  {Barbato}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Open Source
+  Physics}},}\ }\href {\doibase 10.1126/science.1196984} {\bibfield  {journal}
+  {\bibinfo  {journal} {Science}\ }\textbf {\bibinfo {volume} {334}},\ \bibinfo
+  {pages} {1077--1078} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Rezende}\ \emph {et~al.}(2020)\citenamefont
+  {Rezende}, \citenamefont {Papamakarios}, \citenamefont {Racani{\`e}re},
+  \citenamefont {Albergo}, \citenamefont {Kanwar}, \citenamefont {Shanahan},\
+  and\ \citenamefont {Cranmer}}]{Rezende2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.~J.}\ \bibnamefont
+  {Rezende}}, \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Papamakarios}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Racani{\`e}re}}, \bibinfo {author} {\bibfnamefont {M.~S.}\ \bibnamefont
+  {Albergo}}, \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Kanwar}},
+  \bibinfo {author} {\bibfnamefont {P.~E.}\ \bibnamefont {Shanahan}}, \ and\
+  \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Cranmer}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Normalizing flows on tori and
+  spheres},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle} {Proc. 37th Int.
+  Conf. Mach. Learn. ({ICML})}}},\ \bibinfo {series} {Proc. Mach. Learn. Res.},
+  Vol.\ \bibinfo {volume} {119}\ (\bibinfo {year} {2020})\ pp.\ \bibinfo
+  {pages} {8083--8092}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sosanya}\ and\ \citenamefont
+  {Greydanus}(2022)}]{Sosanya2022}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Sosanya}}\ and\ \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Greydanus}},\ }\href@noop {} {\enquote {\bibinfo {title} {Dissipative
+  {H}amiltonian neural networks: Learning dissipative and conservative dynamics
+  separately},}\ } (\bibinfo {year} {2022}),\ \bibinfo {note}
+  {arXiv:2201.10085}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Tao}(2016)}]{Tao2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Tao}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Explicit symplectic
+  approximation of nonseparable {H}amiltonians: Algorithm and long time
+  performance},}\ }\href {\doibase 10.1103/PhysRevE.94.043303} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. E}\ }\textbf {\bibinfo {volume}
+  {94}},\ \bibinfo {pages} {043303} (\bibinfo {year} {2016})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Brunton}, \citenamefont {Proctor},\ and\
+  \citenamefont {Kutz}(2016)}]{Brunton2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~L.}\ \bibnamefont
+  {Brunton}}, \bibinfo {author} {\bibfnamefont {J.~L.}\ \bibnamefont
+  {Proctor}}, \ and\ \bibinfo {author} {\bibfnamefont {J.~N.}\ \bibnamefont
+  {Kutz}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Discovering
+  governing equations from data by sparse identification of nonlinear dynamical
+  systems},}\ }\href {\doibase 10.1073/pnas.1517384113} {\bibfield  {journal}
+  {\bibinfo  {journal} {Proc. Natl. Acad. Sci. U.S.A.}\ }\textbf {\bibinfo
+  {volume} {113}},\ \bibinfo {pages} {3932--3937} (\bibinfo {year}
+  {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Whittle}(1953)}]{Whittle1953}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Whittle}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Estimation and
+  information in stationary time series},}\ }\href {\doibase
+  10.1007/BF02590998} {\bibfield  {journal} {\bibinfo  {journal} {Ark. Mat.}\
+  }\textbf {\bibinfo {volume} {2}},\ \bibinfo {pages} {423--434} (\bibinfo
+  {year} {1953})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sykulski}\ \emph {et~al.}(2019)\citenamefont
+  {Sykulski}, \citenamefont {Olhede}, \citenamefont {Guillaumin}, \citenamefont
+  {Lilly},\ and\ \citenamefont {Early}}]{Sykulski2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~M.}\ \bibnamefont
+  {Sykulski}}, \bibinfo {author} {\bibfnamefont {S.~C.}\ \bibnamefont
+  {Olhede}}, \bibinfo {author} {\bibfnamefont {A.~P.}\ \bibnamefont
+  {Guillaumin}}, \bibinfo {author} {\bibfnamefont {J.~M.}\ \bibnamefont
+  {Lilly}}, \ and\ \bibinfo {author} {\bibfnamefont {J.~J.}\ \bibnamefont
+  {Early}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {The debiased
+  {W}hittle likelihood},}\ }\href {\doibase 10.1093/biomet/asy071} {\bibfield
+  {journal} {\bibinfo  {journal} {Biometrika}\ }\textbf {\bibinfo {volume}
+  {106}},\ \bibinfo {pages} {251--266} (\bibinfo {year} {2019})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Goodman}\ and\ \citenamefont
+  {Weare}(2010)}]{GoodmanWeare2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Goodman}}\ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Weare}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Ensemble samplers
+  with affine invariance},}\ }\href {\doibase 10.2140/camcos.2010.5.65}
+  {\bibfield  {journal} {\bibinfo  {journal} {Commun. Appl. Math. Comput.
+  Sci.}\ }\textbf {\bibinfo {volume} {5}},\ \bibinfo {pages} {65--80} (\bibinfo
+  {year} {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Foreman-Mackey}\ \emph {et~al.}(2013)\citenamefont
+  {Foreman-Mackey}, \citenamefont {Hogg}, \citenamefont {Lang},\ and\
+  \citenamefont {Goodman}}]{ForemanMackey2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Foreman-Mackey}}, \bibinfo {author} {\bibfnamefont {D.~W.}\ \bibnamefont
+  {Hogg}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Lang}}, \ and\
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Goodman}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {emcee: {The MCMC Hammer}},}\ }\href
+  {\doibase 10.1086/670067} {\bibfield  {journal} {\bibinfo  {journal} {Publ.
+  Astron. Soc. Pac.}\ }\textbf {\bibinfo {volume} {125}},\ \bibinfo {pages}
+  {306--312} (\bibinfo {year} {2013})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Skilling}(2006)}]{Skilling2006}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Skilling}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Nested
+  sampling for general {B}ayesian computation},}\ }\href {\doibase
+  10.1214/06-BA127} {\bibfield  {journal} {\bibinfo  {journal} {Bayesian
+  Anal.}\ }\textbf {\bibinfo {volume} {1}},\ \bibinfo {pages} {833--859}
+  (\bibinfo {year} {2006})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Speagle}(2020)}]{Speagle2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~S.}\ \bibnamefont
+  {Speagle}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {dynesty: a
+  dynamic nested sampling package for estimating {B}ayesian posteriors and
+  evidences},}\ }\href {\doibase 10.1093/mnras/staa278} {\bibfield  {journal}
+  {\bibinfo  {journal} {Mon. Not. R. Astron. Soc.}\ }\textbf {\bibinfo {volume}
+  {493}},\ \bibinfo {pages} {3132--3158} (\bibinfo {year} {2020})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Kass}\ and\ \citenamefont
+  {Raftery}(1995)}]{KassRaftery1995}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~E.}\ \bibnamefont
+  {Kass}}\ and\ \bibinfo {author} {\bibfnamefont {A.~E.}\ \bibnamefont
+  {Raftery}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Bayes
+  factors},}\ }\href {\doibase 10.1080/01621459.1995.10476572} {\bibfield
+  {journal} {\bibinfo  {journal} {J. Am. Stat. Assoc.}\ }\textbf {\bibinfo
+  {volume} {90}},\ \bibinfo {pages} {773--795} (\bibinfo {year}
+  {1995})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Talts}\ \emph {et~al.}(2018)\citenamefont {Talts},
+  \citenamefont {Betancourt}, \citenamefont {Simpson}, \citenamefont
+  {Vehtari},\ and\ \citenamefont {Gelman}}]{Talts2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Talts}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Betancourt}},
+  \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Simpson}}, \bibinfo
+  {author} {\bibfnamefont {A.}~\bibnamefont {Vehtari}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {A.}~\bibnamefont {Gelman}},\ }\href@noop {}
+  {\enquote {\bibinfo {title} {Validating {B}ayesian inference algorithms with
+  simulation-based calibration},}\ } (\bibinfo {year} {2018}),\ \bibinfo {note}
+  {arXiv:1804.06788}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kingma}\ and\ \citenamefont
+  {Ba}(2015)}]{KingmaBa2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
+  {Kingma}}\ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Ba}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Adam: A method for
+  stochastic optimization},}\ }in\ \href@noop {} {\emph {\bibinfo {booktitle}
+  {Proc. 3rd Int. Conf. Learn. Represent. ({ICLR})}}}\ (\bibinfo {year}
+  {2015})\ \bibinfo {note} {arXiv:1412.6980}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Elfwing}, \citenamefont {Uchibe},\ and\ \citenamefont
+  {Doya}(2018)}]{Elfwing2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Elfwing}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Uchibe}}, \
+  and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Doya}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Sigmoid-weighted linear units for neural
+  network function approximation in reinforcement learning},}\ }\href@noop {}
+  {\bibfield  {journal} {\bibinfo  {journal} {Neural Netw.}\ }\textbf {\bibinfo
+  {volume} {107}},\ \bibinfo {pages} {3--11} (\bibinfo {year}
+  {2018})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bowman}\ \emph {et~al.}(2016)\citenamefont {Bowman},
+  \citenamefont {Vilnis}, \citenamefont {Vinyals}, \citenamefont {Dai},
+  \citenamefont {Jozefowicz},\ and\ \citenamefont {Bengio}}]{Bowman2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~R.}\ \bibnamefont
+  {Bowman}}, \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Vilnis}},
+  \bibinfo {author} {\bibfnamefont {O.}~\bibnamefont {Vinyals}}, \bibinfo
+  {author} {\bibfnamefont {A.~M.}\ \bibnamefont {Dai}}, \bibinfo {author}
+  {\bibfnamefont {R.}~\bibnamefont {Jozefowicz}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {S.}~\bibnamefont {Bengio}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {Generating sentences from a continuous space},}\ }in\
+  \href@noop {} {\emph {\bibinfo {booktitle} {Proc. 20th SIGNLL Conf. Comput.
+  Nat. Lang. Learn. ({CoNLL})}}}\ (\bibinfo {year} {2016})\ pp.\ \bibinfo
+  {pages} {10--21}\BibitemShut {NoStop}%
+\end{thebibliography}%

@@ -1,0 +1,28 @@
+\begin{tabular}{lcccccc}
+Imputer & $\rho$ & NRMSE & CRPS & cov. & sign & $W_1$\\
+\hline
+\multicolumn{7}{l}{\textit{C1: $s\to(c,\dot\theta)$, forced}}\\
+static GPR & 0.116 & 0.996 & 0.570 & 0.91 & 0.549 & 0.524\\
+original FPRM (GPR) & 0.893 & 0.449 & 0.167 & 0.90 & 0.893 & 0.079\\
+GPR (full context) & 0.971 & 0.216 & 0.068 & 0.90 & 0.971 & 0.044\\
+cVAE & 0.917 & 0.386 & 0.172 & 0.86 & 0.815 & 0.066\\
+DDPM & 0.990 & 0.135 & 0.042 & 0.93 & 0.965 & 0.024\\
+NSF & 0.980 & 0.189 & 0.054 & 0.80 & 0.953 & 0.020\\
+NSF + physics & 0.981 & 0.171 & 0.037 & 0.66 & 0.973 & 0.019\\
+\multicolumn{7}{l}{\textit{C2: $c\to s$, Langevin}}\\
+static GPR & 0.054 & 1.016 & 0.581 & 0.90 & 0.505 & --\\
+original FPRM (GPR) & 0.031 & 1.008 & 0.582 & 0.91 & 0.502 & --\\
+GPR (full context) & 0.031 & 1.008 & 0.582 & 0.91 & 0.502 & --\\
+cVAE & 0.635 & 0.777 & 0.378 & 0.85 & 0.659 & --\\
+DDPM & 0.517 & 0.961 & 0.270 & 0.91 & 0.674 & --\\
+NSF & 0.488 & 0.986 & 0.287 & 0.78 & 0.672 & --\\
+NSF + physics & 0.032 & 1.389 & 0.735 & 0.59 & 0.527 & --\\
+\multicolumn{7}{l}{\textit{C3: $c\to s$, forced, with phase}}\\
+original FPRM (GPR) + phase & 0.989 & 0.145 & 0.047 & 0.95 & 0.972 & --\\
+NSF & 0.975 & 0.224 & 0.067 & 0.79 & 0.941 & --\\
+NSF + physics & 0.488 & 0.879 & 0.491 & 0.35 & 0.715 & --\\
+\multicolumn{7}{l}{\textit{C3: $c\to s$, forced, no phase}}\\
+original FPRM (GPR) & $-0.025$ & 1.020 & 0.587 & 0.99 & 0.500 & --\\
+NSF & 0.427 & 1.045 & 0.329 & 0.84 & 0.640 & --\\
+NSF + physics & 0.351 & 1.206 & 0.664 & 0.38 & 0.599 & --\\
+\end{tabular}

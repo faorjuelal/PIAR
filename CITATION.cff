@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the article and this archive."
+title: "PIAR computational laboratory: code and data for 'From separatrix to strange attractor: Physics-informed normalizing flows for recovering missing dynamics in a spring-coupled inverted pendulum'"
+type: software
+version: "2.2"
+date-released: "2026-09-23"
+license: MIT
+authors:
+  - family-names: "Orjuela López"
+    given-names: "Fredy Alexander"
+    affiliation: "Departamento de Física, Universidad de los Andes, Bogotá, Colombia"
+    email: "fa.orjuela@uniandes.edu.co"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   (add before the Zenodo release)
+keywords:
+  - inverted pendulum
+  - chaos
+  - delay embedding
+  - missing data
+  - normalizing flows
+  - physics-informed machine learning
+preferred-citation:
+  type: article
+  title: "From separatrix to strange attractor: Physics-informed normalizing flows for recovering missing dynamics in a spring-coupled inverted pendulum"
+  authors:
+    - family-names: "Orjuela López"
+      given-names: "Fredy Alexander"
+  journal: "Chaos: An Interdisciplinary Journal of Nonlinear Science"
+  year: 2026
+  notes: "Submitted manuscript; update volume, pages, and DOI after publication."

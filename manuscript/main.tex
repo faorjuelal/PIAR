@@ -1,0 +1,113 @@
+%% Manuscript for Chaos (AIP Publishing), prepared with the official AIP template
+%% (REVTeX 4.1 with the AIP substyles, files included in this directory).
+%% Compile: pdflatex main && bibtex main && pdflatex main && pdflatex main
+%% For the peer-review format required by AIP, replace "reprint" by "preprint".
+\documentclass[%
+ aip,
+ cha,
+ amsmath,amssymb,
+ reprint,%
+ longbibliography,%
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{etoolbox}
+\usepackage[hidelinks]{hyperref}
+
+%% Apr 2021: AIP requests that the corresponding
+%% email to be moved after the affiliations
+\makeatletter
+\def\@email#1#2{%
+ \endgroup
+ \patchcmd{\titleblock@produce}
+  {\frontmatter@RRAPformat}
+  {\frontmatter@RRAPformat{\produce@RRAP{*#1\href{mailto:#2}{#2}}}\frontmatter@RRAPformat}
+  {}{}
+}%
+\makeatother
+
+% float placement: several full-width figures
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{5}
+
+% \PIARlayout{<preprint>}{<reprint>}: selects a layout setting according to the class
+% option, so that the article formats acceptably under preprint (the AIP review format)
+\makeatletter
+\newcommand{\PIARlayout}[2]{\preprintsty@sw{#1}{#2}}
+\makeatother
+% REVTeX sets \sloppy in two-column mode; the same line breaking is used in preprint mode
+\AtBeginDocument{\PIARlayout{\sloppy}{}}
+
+% Zenodo DOI of the code and data archive: fill in after reserving the DOI (e.g. 10.5281/zenodo.1234567)
+\newcommand{\zenodoDOI}{}
+
+\begin{document}
+
+\preprint{AIP/CHAOS}
+
+\title[From separatrix to strange attractor]{From separatrix to strange attractor: Physics-informed normalizing flows for recovering missing dynamics in a spring-coupled inverted pendulum}
+
+\author{Fredy Alexander Orjuela L\'opez}
+\email{fa.orjuela@uniandes.edu.co}
+\affiliation{Departamento de F\'isica, Universidad de los Andes, Bogot\'a, Colombia}
+
+\date{\today}
+
+\input{sections/abstract}
+
+\maketitle
+
+\input{sections/lead}
+
+\input{sections/s1_intro}
+\input{sections/s2_model}
+\input{sections/s3_cases}
+\input{sections/s4_chaos}
+\input{sections/s5_fprm}
+\input{sections/s6_results}
+\input{sections/s7_lab}
+\input{sections/s8_discussion}
+\input{sections/s9_conclusions}
+
+\section*{Supplementary Material}
+See the supplementary material for the complete benchmark tables of every task, missing fraction, and random mask; the embedding parameters of the four tasks and the diagnostics of Secs.~\ref{sec:res_c1} and \ref{sec:res_physics}; the cost and symmetry checks of Secs.~\ref{sec:res_engine} and \ref{sec:attractor}; the diagnostic figures of the five conservative regimes at full size; and a guide to the laboratory that relates every figure and table to the script that produces it.
+
+\begin{acknowledgments}
+\input{sections/acknowledgments}
+\end{acknowledgments}
+
+\section*{Author Declarations}
+\subsection*{Conflict of Interest}
+The author has no conflicts to disclose.
+
+\subsection*{Author Contributions}
+\textbf{Fredy Alexander Orjuela L\'opez:} Conceptualization (lead); Methodology (lead); Software (lead); Formal analysis (lead); Investigation (lead); Visualization (lead); Writing -- original draft (lead); Writing -- review \& editing (lead).
+
+\section*{Data Availability Statement}
+The data that support the findings of this study are available within the article and its supplementary material.
+\ifx\zenodoDOI\empty
+The code and data that regenerate every figure and number (the \texttt{piar} package, the experiment and figure scripts, the unit tests, the interactive notebook, the browser-based simulation, and the numerical results) will be openly available in Zenodo upon publication.
+\else
+The code and data that regenerate every figure and number (the \texttt{piar} package, the experiment and figure scripts, the unit tests, the interactive notebook, the browser-based simulation, and the numerical results) are openly available in Zenodo at \url{https://doi.org/\zenodoDOI}.
+\fi
+
+\appendix
+\input{sections/app_derivations}
+\input{sections/app_hyper}
+
+\clearpage
+\bibliography{refs}
+
+\end{document}

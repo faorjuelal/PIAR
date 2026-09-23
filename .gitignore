@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+*.egg-info/
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.blg
+manuscript/mainNotes.bib
+results/smoke_*
+figures/smoke_*
+manuscript/tables/smoke_*
+manuscript/main_preprint.*
+manuscript/*Notes.bib
+manuscript/cover_letter.*
+
+# generated outputs (the Zenodo archive contains them)
+figures/*
+!figures/.gitkeep
+manuscript/*.pdf
+results/e3_C0_cache.npy
+results/e3_C1_cache.npy
+results/e3_C3_cache.npy
+*.log

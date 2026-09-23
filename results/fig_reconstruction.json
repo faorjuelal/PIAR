@@ -1,0 +1,20 @@
+{
+ "window_coverage90_nsf": [
+  0.6567796610169492,
+  0.6779661016949152
+ ],
+ "window_rmse_nsf": [
+  0.22451930097656914,
+  0.17299419971710087
+ ],
+ "window_rmse_gpr": [
+  0.3361694939881196,
+  0.4501931536660294
+ ],
+ "section_sliced_w1": {
+  "NSF + physics": 0.02312090906011787,
+  "original FPRM (GPR)": 0.06253117958561866
+ },
+ "n_section_missing": 1137,
+ "n_window_missing": 236
+}

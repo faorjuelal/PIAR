@@ -1,0 +1,39 @@
+{
+ "torch": "2.14.0+cu130",
+ "threads": 1,
+ "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "n_rows": 1500,
+ "n_samples": 64,
+ "tasks": {
+  "C1": {
+   "dim": 2,
+   "ctx_dim": 31,
+   "params_nsf": 80394,
+   "params_ddpm": 84098,
+   "evals_per_sample_nsf": 6,
+   "evals_per_logprob_nsf": 3,
+   "evals_per_sample_ddpm": 100,
+   "sample_seconds_nsf": 1.7780320570000185,
+   "sample_seconds_ddpm": 46.66213973399999,
+   "sample_ratio": 26.243699909848985,
+   "phys_step_seconds_nsf": 0.06771919199991316,
+   "phys_step_seconds_ddpm": 2.322890305999863,
+   "phys_step_ratio": 34.30180185851658
+  },
+  "C2": {
+   "dim": 1,
+   "ctx_dim": 19,
+   "params_nsf": 66117,
+   "params_ddpm": 81409,
+   "evals_per_sample_nsf": 3,
+   "evals_per_logprob_nsf": 3,
+   "evals_per_sample_ddpm": 100,
+   "sample_seconds_nsf": 0.022587719000057405,
+   "sample_seconds_ddpm": 27.43184935799991,
+   "sample_ratio": 1214.4585895517025,
+   "phys_step_seconds_nsf": 0.008637274000193429,
+   "phys_step_seconds_ddpm": 1.9798876320001,
+   "phys_step_ratio": 229.225984026414
+  }
+ }
+}

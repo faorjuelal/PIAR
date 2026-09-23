@@ -1,0 +1,44 @@
+{
+ "r0.3_all_observed": {
+  "library": 28203,
+  "rho_c": 0.9778217283921378,
+  "rho_omega": 0.9903077875336321,
+  "rho_mean": 0.984064757962885
+ },
+ "r0.3_gpr_size_1200": {
+  "library": 1200,
+  "rho_c": 0.8057673790510139,
+  "rho_omega": 0.8807035471107788,
+  "rho_mean": 0.8432354630808964
+ },
+ "r0.6_all_observed": {
+  "library": 16178,
+  "rho_c": 0.9714379445158833,
+  "rho_omega": 0.9821837448376031,
+  "rho_mean": 0.9768108446767432
+ },
+ "r0.6_gpr_size_1200": {
+  "library": 1200,
+  "rho_c": 0.8460309957396585,
+  "rho_omega": 0.8986714425914794,
+  "rho_mean": 0.8723512191655689
+ },
+ "r0.9_all_observed": {
+  "library": 4024,
+  "rho_c": 0.9086385295098869,
+  "rho_omega": 0.940550934554841,
+  "rho_mean": 0.924594732032364
+ },
+ "r0.9_gpr_size_1200": {
+  "library": 1200,
+  "rho_c": 0.7977836817234902,
+  "rho_omega": 0.8704641560708344,
+  "rho_mean": 0.8341239188971623
+ },
+ "c3_residual_conditioning": {
+  "sg_second_derivative_noise_gain": 10.674068810429546,
+  "delta_cdd": 0.10674068810429546,
+  "threshold_abs_s_cos": 0.1334258601303693,
+  "fraction_below_threshold": 0.239275
+ }
+}

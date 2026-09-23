@@ -1,0 +1,27 @@
+\section{Data, architectures, and training settings}\label{app:hyper}
+
+Table~\ref{tab:hyper} lists the settings of the reconstruction benchmark of Secs.~\ref{sec:fprm} and \ref{sec:results}. All random seeds are fixed in the experiment scripts. The CRPS of Gaussian predictions was computed in closed form, and that of sampled predictions with the standard sample estimator, which overestimates the score by $(2N_s)^{-1}\,\mathbb E_Q|Y-Y'|$, i.e., by $1/N_s\approx1.6\%$ of the spread term of Eq.~\eqref{eq:crps} for $N_s=64$ samples. Point metrics of the Gaussian predictions were computed, as for the other imputers, from the median of 64 samples.
+
+\begin{table*}[tb]
+\caption{Data, architectures, and training settings of the reconstruction benchmark.}
+\label{tab:hyper}
+\PIARlayout{\renewcommand{\baselinestretch}{1}\footnotesize}{}%
+\begin{ruledtabular}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.74\textwidth}}
+Component & Setting\\
+\hline
+Driven data (C0, C1, C3) & $\mu=-0.8$, $\gamma=0.25$, $A=0.8$, $\Omega=2/3$; RK4 with 128 steps per forcing period; $4\times10^{4}$ samples at 32 per period after 400 transient periods\\
+Langevin data (C2) & $\mu=-0.5$, $\gamma=0.1$, $T_b=0.6\,MgL$; BAOAB with time step $0.01$, sampled every $0.2$; 2000 initial samples discarded\\
+Noise and masks & Gaussian noise of standard deviation $0.01$ on every channel; entries missing completely at random with fractions $0.3$, $0.6$, $0.9$; two masks per fraction\\
+Embedding & $\tau$ at the first minimum of the average mutual information (lags up to 60 samples); $d_E$ from false nearest neighbors (fraction below $1\%$, or the smallest fraction, $d_E\le8$); $m=\lceil(d_E-1)/2\rceil$; $n_b=3$ neighbors per side\\
+NSF & 3 autoregressive rational-quadratic spline transforms, 8 bins, conditioner with 2 hidden layers of 128 units (\texttt{zuko}); Adam~\cite{KingmaBa2015}, learning rate $10^{-3}$ with cosine decay, 2000 steps, batch size 256, gradient clipping at 5\\
+Physics term & C1: holonomic, kinematic, and equation-of-motion residuals; C2: holonomic residual; C3: holonomic and equation-of-motion residuals. $w=1$, threshold $2\sigma_j$, 8 samples per collocation point, 256 collocation points per step, ramp between $10\%$ and $20\%$ of the steps; Savitzky--Golay window 7, degree 4\\
+cVAE & Latent dimension 4; encoder and decoder with 2 hidden layers of 128 SiLU units~\cite{Elfwing2018}; Gaussian decoder; Kullback--Leibler (KL) warm-up~\cite{Bowman2016} over $30\%$ of 6000 steps\\
+DDPM & 100 noise levels, cosine schedule; noise-prediction network with 3 hidden layers of 192 SiLU units and sinusoidal time features; 6000 steps\\
+Model selection & $10\%$ of the observed samples held out; the checkpoint with the best validation score, evaluated every 50 steps after $20\%$ (NSF) or $30\%$ (cVAE, DDPM) of the budget, is retained\\
+GPR & Constant $\times$ anisotropic squared-exponential kernel $+$ white noise; 1200 random training points (all labeled samples in the check of Sec.~\ref{sec:res_c1}); one regressor per output; one optimizer start\\
+Evaluation & 1500 missing entries per run, 64 samples per entry; sliced $W_1$ with 64 random projections (128 for Fig.~\ref{fig:reconstruction}) and one draw per missing section point\\
+Cost benchmark & Architectures above with the conditioning dimensions of C1 and C2; one thread of an Intel Xeon processor at 2.1~GHz; median of five repetitions; physics term timed as the gradient of a hinge penalty on 8 samples at each of 256 collocation points (Sec.~\ref{sec:res_engine})\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}

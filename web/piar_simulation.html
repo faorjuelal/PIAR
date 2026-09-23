@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PIAR Pendulum Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<style>
+/* Single light look on white, as requested: every colour is set explicitly. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --ink: #0f1b2d;
+  --ink-2: #44546a;
+  --muted: #7a889c;
+  --hair: #e2e8f0;
+  --grid: #eef2f7;
+  --grid-major: #e3e9f1;
+  --tint: #f5f8fc;
+  --steel: #5b6b80;
+  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #d99400; --c5: #e0679a; --c6: #4a3aa7;
+  --live: #2a78d6;
+  --serif: "STIX Two Text", "STIX Two", "Times New Roman", Georgia, serif;
+  --sans: "IBM Plex Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+html, body { background: var(--bg); color: var(--ink); }
+body { margin: 0; font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1360px; margin: 0 auto; padding-inline: 16px; padding-block: 22px 36px; display: grid; gap: 18px; }
+
+/* header */
+header.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 28px; }
+.brand { display: grid; gap: 4px; max-width: 72ch; }
+.eyebrow { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 4.2vw, 40px); line-height: 1.08; letter-spacing: -0.005em; margin: 0; text-wrap: balance; }
+h1 .th { font-style: italic; font-weight: 600; color: var(--live); transition: color .3s ease; }
+.lede { margin: 2px 0 0; color: var(--ink-2); font-size: 15px; max-width: 66ch; text-wrap: pretty; }
+.side { display: grid; justify-items: end; gap: 10px; }
+.eq { font-family: var(--serif); font-size: 17px; color: var(--ink); white-space: nowrap; overflow-x: auto; max-width: 100%; padding: 6px 12px; border: 1px solid var(--hair); border-radius: 6px; background: var(--tint); }
+.eq i { font-style: italic; }
+.lang { display: inline-flex; border: 1px solid var(--hair); border-radius: 999px; padding: 2px; background: var(--surface); }
+.lang button { border: 0; background: transparent; padding: 3px 12px; border-radius: 999px; font: 600 12px var(--sans); letter-spacing: 0.06em; color: var(--ink-2); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: #ffffff; }
+
+/* case cards */
+.cases-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+.cases-head h2 { font-family: var(--serif); font-weight: 600; font-size: 19px; margin: 0; }
+.cases-head p { margin: 0; color: var(--muted); font-size: 12.5px; }
+.cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 1100px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.card { display: grid; grid-template-rows: auto auto 1fr; gap: 4px; text-align: left; padding: 8px 8px 10px; border: 1px solid var(--hair); border-radius: 8px; background: var(--surface); cursor: pointer; font: inherit; color: inherit; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.card:hover { border-color: var(--muted); transform: translateY(-1px); }
+.card canvas { display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 5px; background: var(--tint); }
+.card .row { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 4px; }
+.card .nm { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 13.5px; }
+.card .mu { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); white-space: nowrap; }
+.card .bl { font-size: 12px; color: var(--ink-2); line-height: 1.35; }
+.card[aria-pressed="true"] { border-color: var(--cc); box-shadow: 0 0 0 1px var(--cc), 0 6px 18px -10px var(--cc); }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+
+/* main grid */
+.layout { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(0, 1.3fr); grid-template-areas: "stage diag" "params params"; gap: 16px; align-items: start; }
+#stagePanel { grid-area: stage; } #diagPanel { grid-area: diag; } #paramsPanel { grid-area: params; }
+@media (max-width: 940px) { .layout { grid-template-columns: 1fr; grid-template-areas: "stage" "params" "diag"; } }
+.panel { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; overflow: hidden; }
+.panel.hero { box-shadow: 0 14px 34px -22px rgba(15, 27, 45, 0.45); }
+.stage { position: relative; }
+.stage canvas { display: block; width: 100%; aspect-ratio: 1 / 1; max-width: 100%; }
+.stage .clock { position: absolute; top: 12px; left: 14px; font-family: var(--mono); font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; background: rgba(255, 255, 255, 0.86); padding: 2px 8px; border-radius: 5px; border: 1px solid var(--hair); }
+.stage .tag { position: absolute; top: 12px; right: 14px; font-size: 12.5px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 7px; background: rgba(255, 255, 255, 0.86); padding: 2px 10px; border-radius: 999px; border: 1px solid var(--hair); }
+.transport { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 12px; border-top: 1px solid var(--hair); background: var(--tint); }
+button.btn { font: 500 13px var(--sans); color: var(--ink); background: var(--surface); border: 1px solid var(--hair); border-radius: 6px; padding: 6px 13px; cursor: pointer; }
+button.btn:hover { border-color: var(--muted); }
+button.primary { background: var(--live); color: #ffffff; border-color: var(--live); min-width: 96px; font-weight: 600; transition: background-color .3s ease, border-color .3s ease; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.speed { display: flex; align-items: center; gap: 6px; margin-left: auto; font-size: 12.5px; color: var(--ink-2); }
+select { font: 13px var(--sans); color: var(--ink); background: var(--surface); border: 1px solid var(--hair); border-radius: 6px; padding: 5px 6px; }
+.params { padding: 12px 14px 14px; display: grid; gap: 4px; }
+.params h3 { margin: 0; font-family: var(--serif); font-size: 16px; font-weight: 600; }
+.sliders { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 8px 32px; }
+@media (max-width: 940px) { .sliders { grid-template-columns: 1fr; } }
+.grp { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 18px; align-content: start; }
+.field { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0 8px; }
+.field label { font-size: 12.5px; color: var(--ink-2); }
+.field label i { font-family: var(--serif); font-style: italic; font-size: 14.5px; color: var(--ink); }
+.field output { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; color: var(--ink); }
+.field input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--live); margin: 0; }
+.group-title { grid-column: 1 / -1; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-top: 8px; font-weight: 500; }
+
+/* diagnostics */
+.readouts { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-bottom: 1px solid var(--hair); }
+@media (max-width: 1180px) { .readouts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ro { padding: 10px 12px; border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin-bottom: -1px; min-width: 0; }
+.ro:nth-child(6n) { border-right: none; }
+@media (max-width: 1180px) { .ro:nth-child(6n) { border-right: 1px solid var(--hair); } .ro:nth-child(3n) { border-right: none; } }
+.ro .k { font-size: 11.5px; color: var(--muted); letter-spacing: 0.02em; }
+.ro .v { font-family: var(--mono); font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ink); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ro .v.pill { display: inline-block; font-family: var(--sans); font-weight: 600; font-size: 12.5px; line-height: 1.3; padding: 2px 9px; border-radius: 12px; background: var(--tint); border: 1px solid var(--hair); max-width: 100%; white-space: normal; }
+.ro .v.live { color: var(--live); }
+.plots { display: grid; grid-template-columns: 1fr 1fr; }
+@media (max-width: 560px) { .plots { grid-template-columns: 1fr; } }
+.plot { position: relative; border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.plot:nth-child(2n) { border-right: none; }
+.plot:nth-last-child(-n+2) { border-bottom: none; }
+@media (max-width: 560px) { .plot { border-right: none; border-bottom: 1px solid var(--hair); } .plot:last-child { border-bottom: none; } }
+.plot canvas { display: block; width: 100%; aspect-ratio: 4 / 3; max-width: 100%; }
+.plot .ptitle { position: absolute; top: 8px; left: 14px; font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--ink); pointer-events: none; }
+.plotbar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; padding: 9px 12px; border-top: 1px solid var(--hair); font-size: 12.5px; color: var(--ink-2); background: var(--tint); }
+.plotbar label { display: inline-flex; align-items: center; gap: 6px; }
+.legend { display: inline-flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; }
+.sw { display: inline-block; width: 20px; height: 0; border-top: 2px solid var(--live); vertical-align: middle; margin-right: 6px; }
+.sw.ghost { border-top-width: 4px; opacity: 0.28; }
+.sw.dash { border-top: 1.5px dashed var(--muted); }
+
+/* notes */
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px 26px; color: var(--ink-2); font-size: 13.5px; }
+.notes p { margin: 0; max-width: 68ch; }
+.notes b { color: var(--ink); font-weight: 600; }
+.tablewrap { grid-column: 1 / -1; overflow-x: auto; border: 1px solid var(--hair); border-radius: 8px; max-width: 940px; }
+table.cases { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+table.cases caption { caption-side: top; text-align: left; padding: 9px 10px 4px; font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--ink); }
+table.cases th, table.cases td { padding: 6px 10px; text-align: right; border-bottom: 1px solid var(--hair); font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.cases tr:last-child td { border-bottom: none; }
+table.cases th { font-weight: 500; color: var(--muted); font-size: 11.5px; }
+table.cases td:first-child, table.cases th:first-child, table.cases td:last-child, table.cases th:last-child { text-align: left; }
+table.cases td.mono { font-family: var(--mono); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover { transform: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="eyebrow" data-i18n="eyebrow">Spring-coupled inverted pendulum</div>
+      <h1 data-i18n-html="h1"><span class="th">PIAR</span> Pendulum Lab</h1>
+      <p class="lede" data-i18n="lede">A rod held upright by a horizontal spring. Pick a regime, change the parameters, and follow the energy and the phase space while the pendulum moves.</p>
+    </div>
+    <div class="side">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-es" aria-pressed="false">ES</button>
+      </div>
+      <div class="eq" aria-label="Equation of motion"><i>θ̈</i> + <i>γ θ̇</i> + (<i>k</i>/<i>M</i>) sin<i>θ</i> cos<i>θ</i> − (<i>g</i>/<i>L</i>) sin<i>θ</i> = <i>A</i> cos <i>Ωt</i></div>
+    </div>
+  </header>
+
+  <section aria-labelledby="cases-title">
+    <div class="cases-head">
+      <h2 id="cases-title" data-i18n="casesTitle">Five canonical regimes and a chaotic state</h2>
+      <p data-i18n="casesHint">Each card shows the phase portrait of its first 100 s.</p>
+    </div>
+    <div class="cards" id="cards" style="margin-top:10px"></div>
+  </section>
+
+  <div class="layout">
+    <section class="panel hero" id="stagePanel" aria-label="Animation and controls">
+      <div class="stage">
+        <canvas id="stage" aria-label="Animation of the pendulum with its motion trail"></canvas>
+        <div class="clock" id="clock">t = 0.00 s</div>
+        <div class="tag"><span class="dot" id="tagdot"></span><span id="tagname">Case 1</span></div>
+      </div>
+      <div class="transport">
+        <button class="btn primary" id="play" type="button">Pause</button>
+        <button class="btn" id="reset" type="button">Reset</button>
+        <button class="btn" id="step" type="button">+0.5 s</button>
+        <div class="speed"><label for="speedSel" data-i18n="speed">Speed</label>
+          <select id="speedSel">
+            <option value="0.25">×0.25</option><option value="0.5">×0.5</option>
+            <option value="1">×1</option><option value="2" selected>×2</option>
+            <option value="4">×4</option><option value="8">×8</option><option value="16">×16</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="diagPanel" aria-label="Diagnostics">
+      <div class="readouts">
+        <div class="ro"><div class="k">μ = kL/(Mg) − 1</div><div class="v live" id="r-mu">0</div></div>
+        <div class="ro"><div class="k" data-i18n="regime">regime</div><div class="v pill" id="r-reg">kL = Mg</div></div>
+        <div class="ro"><div class="k">E / MgL</div><div class="v" id="r-E">1.005</div></div>
+        <div class="ro"><div class="k">E<sub>sep</sub> / MgL</div><div class="v" id="r-Es">1</div></div>
+        <div class="ro"><div class="k" data-i18n="motion">motion</div><div class="v pill" id="r-mov">rotation</div></div>
+        <div class="ro"><div class="k">|ΔE| / MgL</div><div class="v" id="r-dE">0</div></div>
+      </div>
+      <div class="plots">
+        <div class="plot"><canvas id="pU"></canvas><div class="ptitle" data-i18n="pU">Potential energy</div></div>
+        <div class="plot"><canvas id="pK"></canvas><div class="ptitle" data-i18n="pK">Kinetic energy</div></div>
+        <div class="plot"><canvas id="pF"></canvas><div class="ptitle" data-i18n="pF">Phase diagram</div></div>
+        <div class="plot"><canvas id="pT"></canvas><div class="ptitle" data-i18n="pT">Position</div></div>
+      </div>
+      <div class="plotbar">
+        <span class="legend">
+          <span><span class="sw"></span><span data-i18n="lgPath">travelled path</span></span>
+          <span><span class="sw ghost"></span><span data-i18n="lgFull">full trajectory (0–100 s)</span></span>
+          <span><span class="sw dash"></span><span data-i18n="lgSep">separatrix · total energy</span></span>
+        </span>
+        <label><input type="checkbox" id="wrap"> <span data-i18n="wrap">angle on the cylinder (−π, π]</span></label>
+      </div>
+    </section>
+
+    <section class="panel params" id="paramsPanel" aria-labelledby="params-title">
+      <h3 id="params-title" data-i18n="params">Parameters</h3>
+      <div class="sliders" id="sliders"></div>
+    </section>
+  </div>
+
+  <div class="notes">
+    <p data-i18n-html="note1"><b>Integration.</b> Fourth-order Runge–Kutta with a fixed step <i>h</i> = 0.002 (<i>L</i>/<i>g</i>)<sup>1/2</sup>. The trail and the four plots use every step, so the motion stays smooth at any speed. In the conservative cases the energy drifts by less than 10<sup>−10</sup> <i>MgL</i> over the 100 s of each case.</p>
+    <p data-i18n-html="note2"><b>Units.</b> Parameters in SI units. Values of <i>g</i> other than 9.8 m/s² stand for an effective gravity, such as that of a pendulum moving on a plane inclined at an angle <i>α</i> (<i>g</i><sub>eff</sub> = <i>g</i> sin <i>α</i>). The dynamics depends only on <i>μ</i> and on the time scale (<i>L</i>/<i>g</i>)<sup>1/2</sup>.</p>
+    <p data-i18n-html="note3"><b>Chaotic state.</b> With <i>μ</i> = −0.8, <i>γ</i> = 0.25, <i>A</i> = 0.8 and <i>Ω</i> = 2/3 in natural units, the damped and driven pendulum settles on a strange attractor; its card shows the stroboscopic Poincaré section taken once per forcing period.</p>
+    <div class="tablewrap">
+      <table class="cases">
+        <caption data-i18n="tabCap">Table I · the five conservative regimes (SI units, θ₀ = 0)</caption>
+        <thead><tr><th data-i18n="thCase">Case</th><th>k</th><th>L</th><th>M</th><th>g</th><th>θ̇₀</th><th>μ</th><th>E/MgL</th><th>T (s)</th><th data-i18n="thMotion">Motion</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>2</td><td>2</td><td>2</td><td>2</td><td>0.1</td><td class="mono">0</td><td class="mono">1.005</td><td class="mono">16.389</td><td data-i18n="rot">rotation</td></tr>
+          <tr><td>2</td><td>2</td><td>3</td><td>4</td><td>1</td><td>0.1</td><td class="mono">+0.50</td><td class="mono">1.015</td><td class="mono">16.032</td><td data-i18n="lib">libration</td></tr>
+          <tr><td>3</td><td>1</td><td>4</td><td>5</td><td>10</td><td>0.1</td><td class="mono">−0.92</td><td class="mono">1.002</td><td class="mono">6.272</td><td data-i18n="rot">rotation</td></tr>
+          <tr><td>4</td><td>0.1</td><td>4</td><td>2</td><td>0.1</td><td>0.4</td><td class="mono">+1.00</td><td class="mono">4.200</td><td class="mono">14.838</td><td data-i18n="rot">rotation</td></tr>
+          <tr><td>5</td><td>0.1</td><td>3</td><td>5</td><td>0.1</td><td>0.4</td><td class="mono">−0.40</td><td class="mono">3.400</td><td class="mono">13.742</td><td data-i18n="rot">rotation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const TAU = 2 * Math.PI;
+
+  // ------------------------------------------------------------------ language
+  const I18N = {
+    en: {
+      eyebrow: "Spring-coupled inverted pendulum", h1: '<span class="th">PIAR</span> Pendulum Lab',
+      lede: "A rod held upright by a horizontal spring. Pick a regime, change the parameters, and follow the energy and the phase space while the pendulum moves.",
+      casesTitle: "Five canonical regimes and a chaotic state", casesHint: "Each card shows the phase portrait of its first 100 s.",
+      speed: "Speed", params: "Parameters", regime: "regime", motion: "motion",
+      pU: "Potential energy", pK: "Kinetic energy", pF: "Phase diagram", pT: "Position",
+      lgPath: "travelled path", lgFull: "full trajectory (0–100 s)", lgSep: "separatrix · total energy", wrap: "angle on the cylinder (−π, π]",
+      note1: "<b>Integration.</b> Fourth-order Runge–Kutta with a fixed step <i>h</i> = 0.002 (<i>L</i>/<i>g</i>)<sup>1/2</sup>. The trail and the four plots use every step, so the motion stays smooth at any speed. In the conservative cases the energy drifts by less than 10<sup>−10</sup> <i>MgL</i> over the 100 s of each case.",
+      note2: "<b>Units.</b> Parameters in SI units. Values of <i>g</i> other than 9.8 m/s² stand for an effective gravity, such as that of a pendulum moving on a plane inclined at an angle <i>α</i> (<i>g</i><sub>eff</sub> = <i>g</i> sin <i>α</i>). The dynamics depends only on <i>μ</i> and on the time scale (<i>L</i>/<i>g</i>)<sup>1/2</sup>.",
+      note3: "<b>Chaotic state.</b> With <i>μ</i> = −0.8, <i>γ</i> = 0.25, <i>A</i> = 0.8 and <i>Ω</i> = 2/3 in natural units, the damped and driven pendulum settles on a strange attractor; its card shows the stroboscopic Poincaré section taken once per forcing period.",
+      tabCap: "Table I · the five conservative regimes (SI units, θ₀ = 0)", thCase: "Case", thMotion: "Motion", rot: "rotation", lib: "libration",
+      pause: "Pause", resume: "Resume", reset: "Reset", stepTitle: "Advance 0.5 s", custom: "Custom parameters", na: "n/a",
+      movRot: "rotation", movUp: "libration (upright well)", movLow: "libration (lower well)", movForced: "damped and driven", movDamped: "damped",
+      gSys: "System", gIC: "Initial condition", gDF: "Damping and forcing",
+      stageLabel: "Animation of the pendulum with its motion trail", stagePanel: "Animation and controls", diagPanel: "Diagnostics",
+      names: ["Case 1", "Case 2", "Case 3", "Case 4", "Case 5", "Chaotic state"],
+      blurbs: ["Critical coupling: slow creep over the flat top", "Stiff spring: libration in the upright well", "Weak spring: rotation grazing the separatrix",
+               "Stiff spring, strong kick: fast rotation", "Weak spring, strong kick: fast rotation", "Damped and driven: strange attractor"],
+    },
+    es: {
+      eyebrow: "Péndulo invertido acoplado a un resorte", h1: 'Laboratorio del péndulo <span class="th">PIAR</span>',
+      lede: "Una varilla sostenida por un resorte horizontal. Elige un régimen, cambia los parámetros y sigue la energía y el espacio de fases mientras el péndulo se mueve.",
+      casesTitle: "Cinco regímenes canónicos y un estado caótico", casesHint: "Cada tarjeta muestra el retrato de fase de sus primeros 100 s.",
+      speed: "Velocidad", params: "Parámetros", regime: "régimen", motion: "movimiento",
+      pU: "Energía potencial", pK: "Energía cinética", pF: "Diagrama de fase", pT: "Posición",
+      lgPath: "recorrido", lgFull: "trayectoria completa (0–100 s)", lgSep: "separatriz · energía total", wrap: "ángulo sobre el cilindro (−π, π]",
+      note1: "<b>Integración.</b> Runge–Kutta de cuarto orden con paso fijo <i>h</i> = 0.002 (<i>L</i>/<i>g</i>)<sup>1/2</sup>. La estela y las cuatro gráficas usan todos los pasos, por lo que el movimiento se ve continuo a cualquier velocidad. En los casos conservativos la deriva de energía es menor que 10<sup>−10</sup> <i>MgL</i> durante los 100 s de cada caso.",
+      note2: "<b>Unidades.</b> Parámetros en SI. Los valores de <i>g</i> distintos de 9.8 m/s² representan una gravedad efectiva, como la de un péndulo que se mueve sobre un plano inclinado un ángulo <i>α</i> (<i>g</i><sub>ef</sub> = <i>g</i> sen <i>α</i>). La dinámica depende solo de <i>μ</i> y de la escala de tiempo (<i>L</i>/<i>g</i>)<sup>1/2</sup>.",
+      note3: "<b>Estado caótico.</b> Con <i>μ</i> = −0.8, <i>γ</i> = 0.25, <i>A</i> = 0.8 y <i>Ω</i> = 2/3 en unidades naturales, el péndulo amortiguado y forzado se asienta en un atractor extraño; su tarjeta muestra la sección de Poincaré estroboscópica, tomada una vez por período del forzamiento.",
+      tabCap: "Tabla I · los cinco regímenes conservativos (unidades SI, θ₀ = 0)", thCase: "Caso", thMotion: "Movimiento", rot: "rotación", lib: "libración",
+      pause: "Pausar", resume: "Reanudar", reset: "Reiniciar", stepTitle: "Avanzar 0.5 s", custom: "Parámetros propios", na: "no aplica",
+      movRot: "rotación", movUp: "libración (pozo superior)", movLow: "libración (pozo inferior)", movForced: "forzado y amortiguado", movDamped: "amortiguado",
+      gSys: "Sistema", gIC: "Condición inicial", gDF: "Amortiguamiento y forzamiento",
+      stageLabel: "Animación del péndulo con su estela de movimiento", stagePanel: "Animación y controles", diagPanel: "Diagnósticos",
+      names: ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5", "Estado caótico"],
+      blurbs: ["Acoplamiento crítico: avance lento sobre la cima plana", "Resorte rígido: libración en el pozo vertical", "Resorte débil: rotación rasante a la separatriz",
+               "Resorte rígido, impulso fuerte: rotación rápida", "Resorte débil, impulso fuerte: rotación rápida", "Amortiguado y forzado: atractor extraño"],
+    },
+  };
+  let lang = "en";
+  try { const s = localStorage.getItem("piar-lang"); if (s === "es" || s === "en") lang = s; } catch (e) { /* storage unavailable */ }
+  const tr = (key) => I18N[lang][key];
+
+  // ------------------------------------------------------------------ presets (Table I + chaotic state)
+  const PRESETS = [
+    { id: "c1", col: "--c1", p: { k: 2, L: 2, M: 2, g: 2, th0: 0, om0: 0.1, gam: 0, A: 0, W: 0.6667 } },
+    { id: "c2", col: "--c2", p: { k: 2, L: 3, M: 4, g: 1, th0: 0, om0: 0.1, gam: 0, A: 0, W: 0.6667 } },
+    { id: "c3", col: "--c3", p: { k: 1, L: 4, M: 5, g: 10, th0: 0, om0: 0.1, gam: 0, A: 0, W: 0.6667 } },
+    { id: "c4", col: "--c4", p: { k: 0.1, L: 4, M: 2, g: 0.1, th0: 0, om0: 0.4, gam: 0, A: 0, W: 0.6667 } },
+    { id: "c5", col: "--c5", p: { k: 0.1, L: 3, M: 5, g: 0.1, th0: 0, om0: 0.4, gam: 0, A: 0, W: 0.6667 } },
+    { id: "ch", col: "--c6", p: { k: 0.2, L: 1, M: 1, g: 1, th0: 0, om0: 0, gam: 0.25, A: 0.8, W: 2 / 3 } },
+  ];
+  const SLIDERS = [
+    { group: "gSys" },
+    { key: "k", label: "<i>k</i> (N/m)", min: 0.01, max: 5, step: 0.01 },
+    { key: "L", label: "<i>L</i> (m)", min: 0.2, max: 6, step: 0.05 },
+    { key: "M", label: "<i>M</i> (kg)", min: 0.1, max: 10, step: 0.05 },
+    { key: "g", label: "<i>g</i> (m/s²)", min: 0.05, max: 12, step: 0.05 },
+    { group: "gIC" },
+    { key: "th0", label: "<i>θ</i><sub>0</sub> (rad)", min: -3.14, max: 3.14, step: 0.01 },
+    { key: "om0", label: "<i>θ̇</i><sub>0</sub> (rad/s)", min: -3, max: 3, step: 0.01 },
+    { group: "gDF" },
+    { key: "gam", label: "<i>γ</i> (1/s)", min: 0, max: 1, step: 0.01 },
+    { key: "A", label: "<i>A</i> (rad/s²)", min: 0, max: 2, step: 0.01 },
+    { key: "W", label: "<i>Ω</i> (rad/s)", min: 0.1, max: 2, step: 0.01 },
+  ];
+  const WINDOW = 100;           // s of trajectory precomputed per chunk (as in the five-case figures)
+  const MAX_CHUNKS = 12;
+
+  let P = Object.assign({}, PRESETS[0].p);
+  let presetIdx = 0;
+  let colorVar = PRESETS[0].col;
+
+  // ------------------------------------------------------------------ physics
+  const derived = () => {
+    const lam = P.k / P.M, beta = P.g / P.L, I = P.M * P.L * P.L, MgL = P.M * P.g * P.L;
+    const mu = P.k * P.L / (P.M * P.g) - 1;
+    const Esep = mu > 0 ? MgL * ((1 + mu) ** 2 + 1) / (2 * (1 + mu)) : MgL;
+    const tc = Math.sqrt(P.L / P.g);
+    return { lam, beta, I, MgL, mu, Esep, tc, h: 0.002 * tc, conservative: P.gam === 0 && P.A === 0 };
+  };
+  let D = derived();
+  const U = (th) => P.M * P.g * P.L * Math.cos(th) + 0.5 * P.k * P.L * P.L * Math.sin(th) ** 2;
+  const energy = (th, om) => 0.5 * D.I * om * om + U(th);
+  const acc = (t, th, om) => D.beta * Math.sin(th) - D.lam * Math.sin(th) * Math.cos(th) - P.gam * om + P.A * Math.cos(P.W * t);
+
+  // trajectory buffers (uniform time step h)
+  let T = null, TH = null, OM = null, n = 0, cap = 0;
+  const ensure = (need) => {
+    if (need <= cap) return;
+    const c = Math.max(need, Math.floor(cap * 1.6) + 1024);
+    const nt = new Float64Array(c), nth = new Float64Array(c), nom = new Float64Array(c);
+    if (T) { nt.set(T.subarray(0, n)); nth.set(TH.subarray(0, n)); nom.set(OM.subarray(0, n)); }
+    T = nt; TH = nth; OM = nom; cap = c;
+  };
+  const integrate = (tEnd) => {                     // RK4, fixed step, appends until t >= tEnd
+    const h = D.h;
+    let t = T[n - 1], th = TH[n - 1], om = OM[n - 1];
+    const steps = Math.ceil((tEnd - t) / h);
+    ensure(n + steps + 1);
+    for (let i = 0; i < steps; i++) {
+      const k1t = om, k1o = acc(t, th, om);
+      const k2t = om + 0.5 * h * k1o, k2o = acc(t + 0.5 * h, th + 0.5 * h * k1t, om + 0.5 * h * k1o);
+      const k3t = om + 0.5 * h * k2o, k3o = acc(t + 0.5 * h, th + 0.5 * h * k2t, om + 0.5 * h * k2o);
+      const k4t = om + h * k3o, k4o = acc(t + h, th + h * k3t, om + h * k3o);
+      th += h * (k1t + 2 * k2t + 2 * k3t + k4t) / 6;
+      om += h * (k1o + 2 * k2o + 2 * k3o + k4o) / 6;
+      t += h;
+      T[n] = t; TH[n] = th; OM[n] = om; n++;
+    }
+  };
+  let chunks = 1, E0 = 0, dEmax = 0, dEchecked = 0;
+  const recompute = () => {
+    D = derived();
+    n = 0; cap = 0; T = TH = OM = null;
+    ensure(Math.ceil(WINDOW / D.h) + 8);
+    T[0] = 0; TH[0] = P.th0; OM[0] = P.om0; n = 1;
+    integrate(WINDOW);
+    chunks = 1;
+    E0 = energy(P.th0, P.om0);
+    dEmax = 0; dEchecked = 0;
+    playT = 0; lastIdx = 0;
+    setRanges(); fullRedraw(); updateStatic();
+  };
+
+  // ------------------------------------------------------------------ colours
+  const hexRgb = (h) => { h = h.replace("#", "").trim(); if (h.length === 3) h = h.split("").map((c) => c + c).join(""); const v = parseInt(h, 16); return [(v >> 16) & 255, (v >> 8) & 255, v & 255]; };
+  const mix = (hex, other, f) => { const a = hexRgb(hex), b = hexRgb(other); return "rgb(" + a.map((v, i) => Math.round(v * (1 - f) + b[i] * f)).join(",") + ")"; };
+  let C = {};
+  const readColors = () => {
+    const s = getComputedStyle(document.documentElement);
+    const g = (v) => s.getPropertyValue(v).trim();
+    C = { ink: g("--ink"), ink2: g("--ink-2"), muted: g("--muted"), hair: g("--hair"), grid: g("--grid"), gridMajor: g("--grid-major"),
+          surface: g("--surface"), steel: g("--steel"), line: g(colorVar) };
+    C.ghost = mix(C.line, "#ffffff", 0.76);
+    document.documentElement.style.setProperty("--live", C.line);
+  };
+
+  // ------------------------------------------------------------------ small plotting engine (persistent layer + overlay)
+  const niceTicks = (a, b, target) => {
+    const span = b - a; if (!(span > 0)) return [a];
+    const raw = span / target, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const f = raw / mag, step = (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * mag;
+    const out = []; for (let v = Math.ceil(a / step) * step; v <= b + 1e-9 * step; v += step) out.push(Math.abs(v) < 1e-12 * step ? 0 : v);
+    return out;
+  };
+  const fmt = (v) => { const a = Math.abs(v); if (a === 0) return "0"; if (a >= 1000 || a < 0.01) return v.toExponential(0).replace("e+", "e"); return String(+v.toPrecision(3)); };
+
+  class Plot {
+    constructor(canvas, xl, yl) { this.cv = canvas; this.xl = xl; this.yl = yl; this.bg = document.createElement("canvas"); this.r = [0, 1, 0, 1]; this.m = { l: 56, r: 14, t: 34, b: 36 }; }
+    size() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+      const w = Math.max(200, Math.round(this.cv.clientWidth)), h = Math.round(w * 0.75);
+      this.w = w; this.h = h; this.dpr = dpr;
+      for (const c of [this.cv, this.bg]) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); }
+    }
+    X(x) { const [a, b] = this.r; return this.m.l + (x - a) / (b - a) * (this.w - this.m.l - this.m.r); }
+    Y(y) { const [, , c, d] = this.r; return this.h - this.m.b - (y - c) / (d - c) * (this.h - this.m.t - this.m.b); }
+    axes(ctx) {
+      const { l, r, t, b } = this.m, W = this.w, H = this.h;
+      ctx.fillStyle = C.surface; ctx.fillRect(0, 0, W, H);
+      ctx.font = "10.5px 'IBM Plex Mono', monospace"; ctx.fillStyle = C.ink2;
+      ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+      const xt = niceTicks(this.r[0], this.r[1], 5), yt = niceTicks(this.r[2], this.r[3], 4);
+      ctx.textAlign = "center"; ctx.textBaseline = "top";
+      for (const v of xt) { const x = this.X(v); ctx.beginPath(); ctx.moveTo(x, t); ctx.lineTo(x, H - b); ctx.stroke(); ctx.fillText(fmt(v), x, H - b + 5); }
+      ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      for (const v of yt) { const y = this.Y(v); ctx.beginPath(); ctx.moveTo(l, y); ctx.lineTo(W - r, y); ctx.stroke(); ctx.fillText(fmt(v), l - 6, y); }
+      ctx.strokeStyle = C.muted; ctx.beginPath(); ctx.moveTo(l, t); ctx.lineTo(l, H - b); ctx.lineTo(W - r, H - b); ctx.stroke();
+      ctx.fillStyle = C.ink; ctx.font = "italic 13.5px 'STIX Two Text', serif";
+      ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText(this.xl, W - r, H - 2);
+      ctx.save(); ctx.translate(4, t + 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText(this.yl, 0, -2); ctx.restore();
+    }
+    clip(ctx) { ctx.save(); ctx.beginPath(); ctx.rect(this.m.l, this.m.t, this.w - this.m.l - this.m.r, this.h - this.m.t - this.m.b); ctx.clip(); }
+  }
+
+  const plots = { U: new Plot($("pU"), "θ (rad)", "U (J)"), K: new Plot($("pK"), "θ̇ (rad/s)", "K (J)"),
+                  F: new Plot($("pF"), "θ (rad)", "θ̇ (rad/s)"), T: new Plot($("pT"), "t (s)", "θ (rad)") };
+  let wrapMode = false;
+  const wrapA = (a) => a - TAU * Math.floor((a + Math.PI) / TAU);
+  // coordinates of sample i in each plot
+  const coords = {
+    U: (i) => [wrapMode ? wrapA(TH[i]) : TH[i], U(TH[i])],
+    K: (i) => [OM[i], 0.5 * D.I * OM[i] * OM[i]],
+    F: (i) => [wrapMode ? wrapA(TH[i]) : TH[i], OM[i]],
+    T: (i) => [T[i], TH[i]],
+  };
+  const breaks = (i) => wrapMode && Math.abs(wrapA(TH[i]) - wrapA(TH[i - 1])) > Math.PI;
+
+  const pad = (a, b, f = 0.06) => { if (!(b > a)) { const c = a || 1; return [a - 0.5 * Math.abs(c) - 0.1, b + 0.5 * Math.abs(c) + 0.1]; } const d = (b - a) * f; return [a - d, b + d]; };
+  const setRanges = () => {
+    let th0 = Infinity, th1 = -Infinity, om0 = Infinity, om1 = -Infinity, u0 = Infinity, u1 = -Infinity;
+    for (let i = 0; i < n; i++) { const a = wrapMode ? wrapA(TH[i]) : TH[i]; if (a < th0) th0 = a; if (a > th1) th1 = a; if (OM[i] < om0) om0 = OM[i]; if (OM[i] > om1) om1 = OM[i]; }
+    let xa = th0, xb = th1;
+    if (wrapMode) { xa = -Math.PI; xb = Math.PI; }
+    else if (D.mu > 0 && D.conservative && E0 < D.Esep && Math.abs(P.th0) < Math.acos(1 / (1 + D.mu))) { const ts = Math.acos(1 / (1 + D.mu)); xa = Math.min(xa, -1.25 * ts); xb = Math.max(xb, 1.25 * ts); }
+    const Ngrid = 1200;
+    for (let j = 0; j <= Ngrid; j++) { const u = U(xa + (xb - xa) * j / Ngrid); if (u < u0) u0 = u; if (u > u1) u1 = u; }
+    const Emax = energy(TH[0], OM[0]);
+    let [ua, ub] = pad(Math.min(u0, Emax), Math.max(u1, Emax), 0.08);
+    plots.U.r = [...(wrapMode ? [xa, xb] : pad(xa, xb, 0.02)), ua, ub];
+    const [oa, ob] = pad(om0, om1, 0.08);
+    plots.K.r = [oa, ob, ...pad(0, 0.5 * D.I * Math.max(oa * oa, ob * ob), 0.06)];
+    let fa = om0, fb = om1;
+    if (D.conservative) { let sm = 0; for (let j = 0; j <= Ngrid; j++) { const q = 2 * (D.Esep - U(xa + (xb - xa) * j / Ngrid)) / D.I; if (q > sm * sm) sm = Math.sqrt(q); } if (om0 > 0) { fa = 0; fb = Math.max(om1, 0); } else if (om1 < 0) { fb = 0; } else { fa = Math.min(om0, -sm); fb = Math.max(om1, sm); } }
+    plots.F.r = [...(wrapMode ? [-Math.PI, Math.PI] : pad(xa, xb, 0.02)), ...pad(fa, fb, 0.08)];
+    let ta = Infinity, tb = -Infinity; for (let i = 0; i < n; i++) { if (TH[i] < ta) ta = TH[i]; if (TH[i] > tb) tb = TH[i]; }
+    plots.T.r = [0, T[n - 1], ...pad(ta, tb, 0.08)];
+  };
+
+  const background = {
+    U: (p, ctx) => { // landscape U(theta)
+      ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.beginPath();
+      const [a, b] = p.r; const N = 1600;
+      for (let j = 0; j <= N; j++) { const x = a + (b - a) * j / N; const y = U(x); j ? ctx.lineTo(p.X(x), p.Y(y)) : ctx.moveTo(p.X(x), p.Y(y)); }
+      ctx.stroke();
+    },
+    K: (p, ctx) => { ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.beginPath(); const [a, b] = p.r; const N = 400;
+      for (let j = 0; j <= N; j++) { const x = a + (b - a) * j / N; const y = 0.5 * D.I * x * x; j ? ctx.lineTo(p.X(x), p.Y(y)) : ctx.moveTo(p.X(x), p.Y(y)); } ctx.stroke(); },
+    F: (p, ctx) => { // separatrix of the unforced system and equilibria
+      ctx.strokeStyle = C.muted; ctx.lineWidth = 1.1; ctx.setLineDash([4, 3]);
+      const [a, b] = p.r; const N = 2400;
+      for (const sgn of [1, -1]) { ctx.beginPath(); let pen = false;
+        for (let j = 0; j <= N; j++) { const x = a + (b - a) * j / N; const q = 2 * (D.Esep - U(x)) / D.I; if (q < 0) { pen = false; continue; } const y = sgn * Math.sqrt(q); if (!pen) { ctx.moveTo(p.X(x), p.Y(y)); pen = true; } else ctx.lineTo(p.X(x), p.Y(y)); }
+        ctx.stroke(); }
+      ctx.setLineDash([]);
+      const eq = [[0, D.mu > 0 ? "c" : "s"], [Math.PI, "c"]]; if (D.mu > 0) { const ts = Math.acos(1 / (1 + D.mu)); eq.push([ts, "s"], [-ts, "s"]); }
+      ctx.fillStyle = C.ink; ctx.strokeStyle = C.ink; ctx.lineWidth = 1.3;
+      for (const [e, kind] of eq) for (let k = Math.floor((a - e) / TAU) - 1; k <= Math.ceil((b - e) / TAU) + 1; k++) {
+        const x = e + TAU * k; if (x < a || x > b || p.r[2] > 0 || p.r[3] < 0) continue; const X = p.X(x), Y = p.Y(0);
+        if (kind === "c") { ctx.beginPath(); ctx.arc(X, Y, 2.8, 0, TAU); ctx.fill(); } else { ctx.beginPath(); ctx.moveTo(X - 3.5, Y - 3.5); ctx.lineTo(X + 3.5, Y + 3.5); ctx.moveTo(X - 3.5, Y + 3.5); ctx.lineTo(X + 3.5, Y - 3.5); ctx.stroke(); } }
+    },
+    T: () => {},
+  };
+
+  const drawPath = (p, ctx, key, i0, i1, color, width) => {
+    if (i1 - i0 < 1) return;
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = "round"; ctx.lineCap = "round";
+    ctx.beginPath(); let [x, y] = coords[key](i0); ctx.moveTo(p.X(x), p.Y(y));
+    // decimate in screen space: skip points closer than 0.35 px to the last drawn one
+    let lx = p.X(x), ly = p.Y(y);
+    for (let i = i0 + 1; i <= i1; i++) {
+      [x, y] = coords[key](i); const X = p.X(x), Y = p.Y(y);
+      if (breaks(i)) { ctx.moveTo(X, Y); lx = X; ly = Y; continue; }
+      if (i < i1 && Math.abs(X - lx) < 0.35 && Math.abs(Y - ly) < 0.35) continue;
+      ctx.lineTo(X, Y); lx = X; ly = Y;
+    }
+    ctx.stroke();
+  };
+
+  let playT = 0, lastIdx = 0;
+  const idxAt = (t) => Math.min(n - 1, Math.max(0, Math.floor(t / D.h + 1e-9)));
+  const fullRedraw = () => {
+    readColors();
+    for (const key of Object.keys(plots)) {
+      const p = plots[key]; p.size();
+      const ctx = p.bg.getContext("2d"); ctx.setTransform(p.dpr, 0, 0, p.dpr, 0, 0);
+      p.axes(ctx); p.clip(ctx); background[key](p, ctx);
+      drawPath(p, ctx, key, 0, n - 1, C.ghost, 3);             // full trajectory (light tint of the case colour)
+      drawPath(p, ctx, key, 0, lastIdx, C.line, 1.7);          // travelled part
+      ctx.restore();
+    }
+    sizeStage();
+  };
+  const advancePlots = (i0, i1) => {
+    for (const key of Object.keys(plots)) { const p = plots[key]; const ctx = p.bg.getContext("2d"); ctx.setTransform(p.dpr, 0, 0, p.dpr, 0, 0); p.clip(ctx); drawPath(p, ctx, key, Math.max(0, i0 - 1), i1, C.line, 1.7); ctx.restore(); }
+  };
+  const overlay = (i) => {
+    for (const key of Object.keys(plots)) {
+      const p = plots[key], ctx = p.cv.getContext("2d");
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, p.cv.width, p.cv.height); ctx.drawImage(p.bg, 0, 0);
+      ctx.setTransform(p.dpr, 0, 0, p.dpr, 0, 0); p.clip(ctx);
+      if (key === "U") { const E = energy(TH[i], OM[i]); ctx.strokeStyle = C.ink2; ctx.lineWidth = 1; ctx.setLineDash([5, 3]); ctx.beginPath(); ctx.moveTo(p.m.l, p.Y(E)); ctx.lineTo(p.w - p.m.r, p.Y(E)); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = C.ink2; ctx.font = "italic 13px 'STIX Two Text', serif"; ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("E", p.w - p.m.r - 3, p.Y(E) - 2); }
+      const [x, y] = coords[key](i), X = p.X(x), Y = p.Y(y);
+      ctx.fillStyle = C.ghost; ctx.beginPath(); ctx.arc(X, Y, 9, 0, TAU); ctx.fill();          // halo
+      ctx.fillStyle = C.line; ctx.strokeStyle = C.surface; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(X, Y, 4.6, 0, TAU); ctx.fill(); ctx.stroke();
+      ctx.restore();
+    }
+  };
+
+  // ------------------------------------------------------------------ pendulum stage
+  const stage = $("stage");
+  let SW = 400, SH = 400, sdpr = 1;
+  const sizeStage = () => { sdpr = Math.min(window.devicePixelRatio || 1, 2.5); SW = Math.max(240, Math.round(stage.clientWidth)); SH = SW; stage.width = Math.round(SW * sdpr); stage.height = Math.round(SH * sdpr); };
+  const drawStage = (i) => {
+    const ctx = stage.getContext("2d"); ctx.setTransform(sdpr, 0, 0, sdpr, 0, 0);
+    ctx.fillStyle = C.surface; ctx.fillRect(0, 0, SW, SH);
+    // graph paper
+    const cell = Math.max(12, SW / 30);
+    ctx.lineWidth = 1;
+    for (let x = cell, k = 1; x < SW; x += cell, k++) { ctx.strokeStyle = k % 5 ? C.grid : C.gridMajor; ctx.beginPath(); ctx.moveTo(Math.round(x) + 0.5, 0); ctx.lineTo(Math.round(x) + 0.5, SH); ctx.stroke(); }
+    for (let y = cell, k = 1; y < SH; y += cell, k++) { ctx.strokeStyle = k % 5 ? C.grid : C.gridMajor; ctx.beginPath(); ctx.moveTo(0, Math.round(y) + 0.5); ctx.lineTo(SW, Math.round(y) + 0.5); ctx.stroke(); }
+
+    const s = SW * 0.33;                        // pixels per rod length
+    const ox = SW * 0.56, oy = SH * 0.57;       // pivot
+    const gx = ox - s * 1.25;                   // vertical guide of the collar
+    const th = TH[i];
+    const bx = ox + s * Math.sin(th), by = oy - s * Math.cos(th);
+    const R = Math.max(10, s * 0.08);           // radius of the mass
+
+    // reference lines through the pivot
+    ctx.strokeStyle = C.muted; ctx.globalAlpha = 0.45; ctx.lineWidth = 1; ctx.setLineDash([3, 5]);
+    ctx.beginPath(); ctx.moveTo(ox, oy - s * 1.18); ctx.lineTo(ox, oy + s * 1.1); ctx.moveTo(gx + 10, oy); ctx.lineTo(ox + s * 1.2, oy); ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+
+    // guide rails of the collar
+    ctx.strokeStyle = C.steel; ctx.lineWidth = 1.6;
+    for (const dx of [-4.5, 4.5]) { ctx.beginPath(); ctx.moveTo(gx + dx, oy - s * 1.22); ctx.lineTo(gx + dx, oy + s * 1.22); ctx.stroke(); }
+    for (const yy of [oy - s * 1.22, oy + s * 1.22]) { ctx.beginPath(); ctx.moveTo(gx - 9, yy); ctx.lineTo(gx + 9, yy); ctx.stroke(); }
+
+    // motion trail: every integration step of the last 1.3 t_c (at least 0.7 s), opaque colours faded toward white
+    const span = Math.max(0.7, 1.3 * D.tc), i0 = Math.max(0, idxAt(T[i] - span));
+    const bins = 36, per = Math.max(1, Math.ceil((i - i0) / bins)), nb = Math.max(1, Math.ceil((i - i0) / per));
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    for (let b = 0, a = i0; a < i; b++, a += per) {
+      const e = Math.min(i, a + per), w = (b + 1) / nb;
+      ctx.strokeStyle = mix(C.line, "#ffffff", 0.92 * (1 - Math.pow(w, 1.4)));
+      ctx.lineWidth = 1.2 + 5.2 * w * w;
+      ctx.beginPath(); ctx.moveTo(ox + s * Math.sin(TH[a]), oy - s * Math.cos(TH[a]));
+      for (let j = a + 1; j <= e; j++) ctx.lineTo(ox + s * Math.sin(TH[j]), oy - s * Math.cos(TH[j]));
+      ctx.stroke();
+    }
+
+    // spring: coil from the collar to the mass, always horizontal
+    const cx0 = gx + 7, cx1 = bx - (R + 3) * Math.sign(bx - cx0 || 1), len = cx1 - cx0;
+    const coils = 12, amp = Math.max(5, s * 0.05), N = 260;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = C.steel; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.moveTo(gx + 5, by); ctx.lineTo(cx0, by);
+    for (let j = 0; j <= N; j++) { const u = j / N, x = cx0 + len * (0.07 + 0.86 * u), y = by + amp * Math.sin(TAU * coils * u) * (u > 0 && u < 1 ? 1 : 0); ctx.lineTo(x, y); }
+    ctx.lineTo(cx1, by); ctx.stroke();
+    ctx.strokeStyle = "rgba(255,255,255,0.65)"; ctx.lineWidth = 0.8; ctx.beginPath();
+    for (let j = 0; j <= N; j++) { const u = j / N, x = cx0 + len * (0.07 + 0.86 * u), y = by - 0.6 + amp * Math.sin(TAU * coils * u) * (u > 0 && u < 1 ? 1 : 0); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+    ctx.stroke();
+
+    // collar on the guide
+    ctx.fillStyle = C.surface; ctx.strokeStyle = C.ink; ctx.lineWidth = 1.4;
+    ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(gx - 10, by - 13, 20, 26, 4); else ctx.rect(gx - 10, by - 13, 20, 26); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(gx, by, 2.2, 0, TAU); ctx.fill();
+
+    // hinge support with hatched ground
+    const base = oy + 20;
+    ctx.fillStyle = C.surface; ctx.strokeStyle = C.ink; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox - 13, base); ctx.lineTo(ox + 13, base); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox - 30, base); ctx.lineTo(ox + 30, base); ctx.stroke();
+    ctx.lineWidth = 1; ctx.strokeStyle = C.muted;
+    for (let x = ox - 28; x <= ox + 26; x += 6) { ctx.beginPath(); ctx.moveTo(x, base); ctx.lineTo(x - 6, base + 7); ctx.stroke(); }
+
+    // rod
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(bx, by); ctx.stroke();
+    ctx.fillStyle = C.surface; ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(ox, oy, 5.5, 0, TAU); ctx.fill(); ctx.stroke();
+
+    // mass: shaded sphere with a soft shadow
+    ctx.save();
+    ctx.shadowColor = "rgba(15, 27, 45, 0.28)"; ctx.shadowBlur = 12; ctx.shadowOffsetY = 4;
+    const gr = ctx.createRadialGradient(bx - R * 0.38, by - R * 0.42, R * 0.12, bx, by, R * 1.05);
+    gr.addColorStop(0, mix(C.line, "#ffffff", 0.62)); gr.addColorStop(0.55, C.line); gr.addColorStop(1, mix(C.line, "#0f1b2d", 0.28));
+    ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(bx, by, R, 0, TAU); ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = mix(C.line, "#0f1b2d", 0.35); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(bx, by, R, 0, TAU); ctx.stroke();
+
+    // angle arc and labels
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.2; ctx.beginPath();
+    const tw = wrapA(th); ctx.arc(ox, oy, s * 0.22, -Math.PI / 2, -Math.PI / 2 + tw, tw < 0); ctx.stroke();
+    ctx.fillStyle = C.ink; ctx.font = "italic 16px 'STIX Two Text', serif"; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+    ctx.fillText("θ", ox + s * 0.07, oy - s * 0.31);
+    ctx.fillText("k", gx + 0.3 * (bx - gx), by - amp - 12);
+    ctx.fillText("y", gx - 30, by); ctx.font = "italic 11px 'STIX Two Text', serif"; ctx.fillText("c", gx - 22, by + 5);
+  };
+
+  // ------------------------------------------------------------------ case cards with phase-portrait thumbnails
+  const thumbs = PRESETS.map((pr) => {       // coarse trajectories for the cards (visual only)
+    const q = pr.p, lam = q.k / q.M, beta = q.g / q.L, tc = Math.sqrt(q.L / q.g);
+    const f = (t, th, om) => beta * Math.sin(th) - lam * Math.sin(th) * Math.cos(th) - q.gam * om + q.A * Math.cos(q.W * t);
+    const step = (t, th, om, h) => {
+      const k1t = om, k1o = f(t, th, om);
+      const k2t = om + 0.5 * h * k1o, k2o = f(t + 0.5 * h, th + 0.5 * h * k1t, om + 0.5 * h * k1o);
+      const k3t = om + 0.5 * h * k2o, k3o = f(t + 0.5 * h, th + 0.5 * h * k2t, om + 0.5 * h * k2o);
+      const k4t = om + h * k3o, k4o = f(t + h, th + h * k3t, om + h * k3o);
+      return [th + h * (k1t + 2 * k2t + 2 * k3t + k4t) / 6, om + h * (k1o + 2 * k2o + 2 * k3o + k4o) / 6];
+    };
+    const xs = [], ys = [];
+    if (q.A > 0) {                            // stroboscopic Poincaré section of the attractor
+      const Tf = TAU / q.W, h = Tf / 96; let t = 0, th = q.th0, om = q.om0;
+      for (let p = 0; p < 2600; p++) { for (let k = 0; k < 96; k++) { [th, om] = step(t, th, om, h); t += h; } if (p >= 100) { xs.push(wrapA(th)); ys.push(om); } }
+      return { xs, ys, points: true, mu: q.k * q.L / (q.M * q.g) - 1 };
+    }
+    const h = 0.01 * tc; let t = 0, th = q.th0, om = q.om0;
+    const Nst = Math.ceil(100 / h), every = Math.max(1, Math.floor(Nst / 3000));
+    for (let k = 0; k < Nst; k++) { [th, om] = step(t, th, om, h); t += h; if (k % every === 0) { xs.push(wrapA(th)); ys.push(om); } }
+    return { xs, ys, points: false, mu: q.k * q.L / (q.M * q.g) - 1 };
+  });
+  const cardsEl = $("cards"), cardEls = [];
+  PRESETS.forEach((pr, j) => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "card"; b.id = "preset-" + pr.id;
+    b.style.setProperty("--cc", `var(${pr.col})`);
+    const mu = thumbs[j].mu, muTxt = (Math.abs(mu) < 1e-9 ? "0" : (mu > 0 ? "+" : "−") + Math.abs(mu).toFixed(2));
+    b.innerHTML = `<canvas aria-hidden="true"></canvas><span class="row"><span class="nm"><span class="dot" style="background: var(${pr.col})"></span><span class="nmt"></span></span><span class="mu">μ = ${muTxt}</span></span><span class="bl"></span>`;
+    b.setAttribute("aria-pressed", j === 0 ? "true" : "false");
+    b.addEventListener("click", () => loadPreset(j));
+    cardsEl.appendChild(b); cardEls.push(b);
+  });
+  const drawThumbs = () => {
+    const s = getComputedStyle(document.documentElement);
+    cardEls.forEach((b, j) => {
+      const cv = b.querySelector("canvas"), dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+      const w = Math.max(80, Math.round(cv.clientWidth)), h = Math.round(w * 9 / 16);
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      const ctx = cv.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const col = s.getPropertyValue(PRESETS[j].col).trim(), th = thumbs[j];
+      ctx.fillStyle = s.getPropertyValue("--tint").trim(); ctx.fillRect(0, 0, w, h);
+      let ya = Infinity, yb = -Infinity; for (const y of th.ys) { if (y < ya) ya = y; if (y > yb) yb = y; }
+      if (ya > 0) ya = -0.15 * yb; if (yb < 0) yb = -0.15 * ya;            // keep θ̇ = 0 in view
+      const pd = 0.12 * (yb - ya || 1); ya -= pd; yb += pd;
+      let xm = 0; for (const x of th.xs) if (Math.abs(x) > xm) xm = Math.abs(x);
+      const xr = th.points || xm > 2.6 ? Math.PI : Math.max(0.3, 1.3 * xm);   // zoom on librations
+      const X = (x) => 6 + (x + xr) / (2 * xr) * (w - 12), Y = (y) => h - 5 - (y - ya) / (yb - ya) * (h - 10);
+      ctx.strokeStyle = s.getPropertyValue("--grid-major").trim(); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(6, Y(0)); ctx.lineTo(w - 6, Y(0)); ctx.moveTo(X(0), 3); ctx.lineTo(X(0), h - 3); ctx.stroke();
+      if (th.points) {
+        ctx.fillStyle = col; ctx.globalAlpha = 0.55;
+        for (let k = 0; k < th.xs.length; k++) ctx.fillRect(X(th.xs[k]) - 0.6, Y(th.ys[k]) - 0.6, 1.3, 1.3);
+        ctx.globalAlpha = 1;
+      } else {
+        ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.lineJoin = "round"; ctx.beginPath();
+        for (let k = 0; k < th.xs.length; k++) { const x = X(th.xs[k]), y = Y(th.ys[k]); if (k === 0 || Math.abs(th.xs[k] - th.xs[k - 1]) > Math.PI) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
+        ctx.stroke();
+      }
+    });
+  };
+
+  // ------------------------------------------------------------------ sliders
+  const slEl = $("sliders"); const inputs = {}; const groupEls = []; let grp = null;
+  for (const s of SLIDERS) {
+    if (s.group) { grp = document.createElement("div"); grp.className = "grp"; const d = document.createElement("div"); d.className = "group-title"; d.dataset.key = s.group; grp.appendChild(d); slEl.appendChild(grp); groupEls.push(d); continue; }
+    const f = document.createElement("div"); f.className = "field";
+    f.innerHTML = `<label for="s-${s.key}">${s.label}</label><output id="o-${s.key}" for="s-${s.key}"></output><input type="range" id="s-${s.key}" min="${s.min}" max="${s.max}" step="${s.step}">`;
+    grp.appendChild(f);
+    const inp = f.querySelector("input"); inputs[s.key] = inp;
+    inp.addEventListener("input", () => { P[s.key] = parseFloat(inp.value); $("o-" + s.key).textContent = fmtIn(P[s.key]); markCustom(); schedule(); });
+  }
+  const SUP = { "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
+  const sci = (v) => { if (!(v > 0)) return "0"; const e = Math.floor(Math.log10(v)); const m = v / Math.pow(10, e); return m.toFixed(1) + "×10" + String(e).split("").map((c) => SUP[c] || c).join(""); };
+  const fmtIn = (v) => (Math.abs(v) < 10 ? v.toFixed(2) : v.toFixed(1));
+  const syncInputs = () => { for (const k in inputs) { inputs[k].value = P[k]; $("o-" + k).textContent = fmtIn(P[k]); } };
+  let pending = 0; const schedule = () => { clearTimeout(pending); pending = setTimeout(() => { recompute(); running = true; setPlayLabel(); }, 60); };
+  let custom = false;
+  const markCustom = () => { custom = true; cardEls.forEach((c) => c.setAttribute("aria-pressed", "false")); $("tagname").textContent = tr("custom"); };
+  const loadPreset = (j) => {
+    presetIdx = j; custom = false; P = Object.assign({}, PRESETS[j].p); colorVar = PRESETS[j].col;
+    cardEls.forEach((c, k) => c.setAttribute("aria-pressed", k === j ? "true" : "false"));
+    $("tagname").textContent = tr("names")[j]; $("tagdot").style.background = `var(${colorVar})`;
+    syncInputs(); recompute(); running = true; setPlayLabel();
+  };
+  let movKey = "movRot";
+  const updateStatic = () => {
+    $("r-mu").textContent = (D.mu >= 0 ? (D.mu === 0 ? "" : "+") : "−") + Math.abs(D.mu).toFixed(3);
+    const kl = P.k * P.L, mg = P.M * P.g, rel = Math.abs(kl - mg) < 1e-9 * Math.max(kl, mg) ? "kL = Mg" : kl > mg ? "kL > Mg" : "kL < Mg";
+    $("r-reg").textContent = rel;
+    $("r-Es").textContent = (D.Esep / D.MgL).toFixed(4);
+    if (D.conservative) {
+      if (E0 > D.Esep) movKey = "movRot";
+      else if (D.mu > 0 && Math.abs(wrapA(P.th0)) < Math.acos(1 / (1 + D.mu)) && E0 < D.Esep) movKey = "movUp";
+      else movKey = "movLow";
+    } else movKey = P.A > 0 ? "movForced" : "movDamped";
+    $("r-mov").textContent = tr(movKey);
+  };
+
+  // ------------------------------------------------------------------ language switch
+  const applyLang = () => {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = tr(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => { el.innerHTML = tr(el.dataset.i18nHtml); });
+    groupEls.forEach((el) => { el.textContent = tr(el.dataset.key); });
+    cardEls.forEach((b, j) => { b.querySelector(".nmt").textContent = tr("names")[j]; b.querySelector(".bl").textContent = tr("blurbs")[j]; });
+    $("tagname").textContent = custom ? tr("custom") : tr("names")[presetIdx];
+    $("reset").textContent = tr("reset"); $("step").title = tr("stepTitle");
+    $("stage").setAttribute("aria-label", tr("stageLabel"));
+    $("stagePanel").setAttribute("aria-label", tr("stagePanel")); $("diagPanel").setAttribute("aria-label", tr("diagPanel"));
+    $("lang-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    $("lang-es").setAttribute("aria-pressed", lang === "es" ? "true" : "false");
+    $("r-mov").textContent = tr(movKey);
+    if (!D.conservative) $("r-dE").textContent = tr("na");
+    setPlayLabel();
+  };
+  const setLang = (l) => { lang = l; try { localStorage.setItem("piar-lang", l); } catch (e) { /* storage unavailable */ } applyLang(); };
+  $("lang-en").addEventListener("click", () => setLang("en"));
+  $("lang-es").addEventListener("click", () => setLang("es"));
+
+  // ------------------------------------------------------------------ transport
+  let running = true, speed = 2;
+  const setPlayLabel = () => { $("play").textContent = running ? tr("pause") : tr("resume"); };
+  $("play").addEventListener("click", () => { running = !running; setPlayLabel(); });
+  $("reset").addEventListener("click", () => { playT = 0; lastIdx = 0; fullRedraw(); running = true; setPlayLabel(); });
+  $("step").addEventListener("click", () => { playT += 0.5; });
+  $("speedSel").addEventListener("change", (e) => { speed = parseFloat(e.target.value); });
+  $("wrap").addEventListener("change", (e) => { wrapMode = e.target.checked; setRanges(); fullRedraw(); });
+  document.addEventListener("keydown", (e) => { if (e.code === "Space" && !(e.target instanceof HTMLInputElement) && !(e.target instanceof HTMLSelectElement) && !(e.target instanceof HTMLButtonElement)) { e.preventDefault(); running = !running; setPlayLabel(); } });
+
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { speed = 1; $("speedSel").value = "1"; }
+
+  // ------------------------------------------------------------------ main loop
+  let last = performance.now(), uiTick = 0;
+  const frame = (now) => {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (running) playT += dt * speed;
+    if (playT > T[n - 1] - D.h) {                     // extend the trajectory by another window
+      if (chunks < MAX_CHUNKS) { integrate(T[n - 1] + WINDOW); chunks++; setRanges(); fullRedraw(); }
+      else { playT = T[n - 1]; running = false; setPlayLabel(); }
+    }
+    const i = idxAt(playT);
+    if (i > lastIdx) { advancePlots(lastIdx, i); lastIdx = i; }
+    overlay(i); drawStage(i);
+    if (now - uiTick > 90) {
+      uiTick = now;
+      $("clock").textContent = "t = " + T[i].toFixed(2) + " s";
+      const E = energy(TH[i], OM[i]);
+      $("r-E").textContent = (E / D.MgL).toFixed(4);
+      if (D.conservative) { for (let j = dEchecked; j <= i; j++) { const d = Math.abs(energy(TH[j], OM[j]) - E0); if (d > dEmax) dEmax = d; } dEchecked = i; $("r-dE").textContent = sci(dEmax / D.MgL); }
+      else $("r-dE").textContent = tr("na");
+    }
+    requestAnimationFrame(frame);
+  };
+
+  let rz = 0; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { fullRedraw(); drawThumbs(); }, 120); });
+
+  syncInputs(); readColors(); applyLang(); loadPreset(0); drawThumbs();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { fullRedraw(); drawThumbs(); });
+  requestAnimationFrame((t) => { last = t; requestAnimationFrame(frame); });
+})();
+</script>
+</body>
+</html>

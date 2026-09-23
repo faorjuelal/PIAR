@@ -1,0 +1,49 @@
+\section{Derivations}\label{app:derivations}
+
+\subsection{Separatrix energy and barrier}
+
+For $\mu>0$, Eq.~\eqref{eq:thetastar} gives $\cos\theta^{*}=(1+\mu)^{-1}$ and $\sin^{2}\theta^{*}=1-(1+\mu)^{-2}$. Substituting into Eq.~\eqref{eq:U}, with $kL^{2}=MgL(1+\mu)$, gives
+\begin{equation}
+\begin{split}
+U(\theta^{*}) &= MgL\left[\frac{1}{1+\mu}+\frac{1+\mu}{2}-\frac{1}{2(1+\mu)}\right]\\
+&= MgL\,\frac{(1+\mu)^{2}+1}{2(1+\mu)},
+\end{split}
+\end{equation}
+which is Eq.~\eqref{eq:Esep}; subtracting $U(0)=MgL$ yields the barrier of Eq.~\eqref{eq:barrier}. The curvature at the saddle, $U''(\theta^{*})=MgL[(1+\mu)^{-1}-(1+\mu)]=-MgL\,\mu(2+\mu)/(1+\mu)$, gives the growth rate $\nu_*=[(g/L)\,\mu(2+\mu)/(1+\mu)]^{1/2}$ with which trajectories leave the tilted saddles.
+
+\subsection{Normal form and amplitude-dependent frequency}
+
+With $\sin\theta=\theta-\theta^{3}/6+O(\theta^{5})$ and $1-(1+\mu)\cos\theta=-\mu+(1+\mu)\theta^{2}/2+O(\theta^{4})$, the product in Eq.~\eqref{eq:eom_dimless} becomes $-\mu\theta+\bigl[\tfrac12(1+\mu)+\tfrac16\mu\bigr]\theta^{3}+O(\theta^{5})$, which is Eq.~\eqref{eq:normal_form}. At $\mu=0$ the potential reduces to $U/MgL=\cos\theta+\tfrac12\sin^{2}\theta=1-\theta^{4}/8+O(\theta^{6})$. For $\mu>0$, Eq.~\eqref{eq:normal_form} is a softening Duffing oscillator, $\theta''+\mu\theta-b\,\theta^{3}=0$ with $b=(3+4\mu)/6$. The Lindstedt--Poincar\'e expansion of a periodic solution of amplitude $a$ gives, in natural units, $\omega^{2}=\mu-\tfrac34\,b\,a^{2}+O(a^{4})$~\cite{Strogatz2015}, hence
+\begin{equation}
+\frac{\omega}{\omega_0} = 1-\frac{3b\,a^{2}}{8\mu}+O(a^{4}) = 1-\frac{(3+4\mu)\,a^{2}}{16\,\mu}+O(a^{4}),
+\end{equation}
+which is Eq.~\eqref{eq:lindstedt}. For case 2 ($\mu=0.5$, $a=0.2516$~rad) the predicted frequency shift is $3.96\%$, against the exact $4.00\%$ obtained from the period $16.0323$~s and $2\pi/\omega_0=15.3906$~s; in terms of the period, the lengthening is $4.12\%$ predicted and $4.17\%$ exact, and the difference is of the order of the neglected $O(a^{4})$ terms.
+
+\subsection{Exact periods}
+
+With the energy per unit inertia, $\epsilon=E/(ML^{2})$, and $\upsilon(\theta)=U(\theta)/(ML^{2})$, the period of Eq.~\eqref{eq:period} reads $T=\oint\mathrm d\theta\,\{2[\epsilon-\upsilon(\theta)]\}^{-1/2}$. For a libration symmetric about a center $\theta_e$ ($\theta_e=0$ in the upright well, $\theta_e=\pi$ in the hanging well) with turning points $\theta_e\pm a$, the substitution $\theta=\theta_e+a\sin\xi$ removes the inverse-square-root singularity at the turning points,
+\begin{equation}
+T = 4\int_0^{\pi/2}\frac{a\cos\xi\,\mathrm d\xi}{\{2[\epsilon-\upsilon(\theta_e+a\sin\xi)]\}^{1/2}},
+\end{equation}
+and the resulting smooth integral was evaluated by adaptive quadrature with a relative tolerance of $10^{-12}$; the amplitude $a$ was found by bracketing the root of $\upsilon(\theta_e+a)=\epsilon$. For rotations the integrand is regular over one revolution. Near a hyperbolic saddle with growth rate $\nu$, the velocity vanishes linearly with the distance to the saddle, so that the time spent in its neighborhood diverges as $\nu^{-1}\ln(MgL/|E-E_{\mathrm{sep}}|)$ per saddle passage as $E\to E_{\mathrm{sep}}$; the period contains one or two such passages. At the degenerate point $\mu=0$, where $\upsilon\simeq(g/L)(1-\theta^{4}/8)$ near the top, the substitution $\theta=[8|\epsilon-g/L|L/g]^{1/4}\eta$ shows instead that the passage time scales as $|E-E_{\mathrm{sep}}|^{-1/4}$.
+
+\subsection{Melnikov integrals}
+
+For $\mu<0$ and per unit inertia, the homoclinic orbit of the upright saddle has $\epsilon=1$ in natural units. With $\chi=2\pi-\theta$, the angular distance to the saddle for $\theta\in[\pi,2\pi]$, energy conservation gives
+\begin{equation}
+\dot\theta_h^{2} = 4\sin^{2}\frac{\chi}{2}-\kappa\sin^{2}\chi = 4\sin^{2}\frac{\chi}{2}\left[1-\kappa\cos^{2}\frac{\chi}{2}\right],
+\end{equation}
+a form free of the cancellation in $1-\cos\theta$ near the saddle. With $\Lambda=(1-\kappa)^{1/2}$ and time measured from the bottom of the loop, the orbit is
+\begin{equation}
+\dot\theta_h(t) = \frac{2\Lambda^{2}\,\mathrm{sech}(\Lambda t)}{1-\kappa\,\mathrm{sech}^{2}(\Lambda t)},
+\end{equation}
+whose integral is $\sin[(\theta_h-\pi)/2]=\tanh(\Lambda t)/[1-\kappa\,\mathrm{sech}^{2}(\Lambda t)]^{1/2}$. The substitution $u=\cos(\chi/2)$ turns $I_0=\oint\dot\theta_h\,\mathrm d\theta$ into $8\int_0^1(1-\kappa u^{2})^{1/2}\,\mathrm du$, and $I_1$ follows from the residues of its integrand at the poles $\Lambda t=i(\pi/2\pm\arcsin\sqrt\kappa)$ of $\dot\theta_h$. The integrals of Eq.~\eqref{eq:melnikov_integrals} evaluate to
+\begin{align}
+I_0 &= 4\left[\Lambda+\frac{\arcsin\sqrt\kappa}{\sqrt\kappa}\right],\\
+I_1(\Omega) &= 2\pi\,\frac{\cosh\bigl(\Omega\arcsin\sqrt\kappa/\Lambda\bigr)}{\cosh\bigl[\pi\Omega/(2\Lambda)\bigr]} .
+\end{align}
+For $\kappa=0$ they reduce to $I_0=8$ and $I_1=2\pi\,\mathrm{sech}(\pi\Omega/2)$, the classic result for the damped--driven pendulum. The closed forms agree to eight significant digits with a direct quadrature along the separatrix, in which the logarithmic divergence of the time near the saddle was resolved on a logarithmic grid in $\chi$ down to $10^{-15}$; the quadrature and its pendulum limit are part of the unit tests.
+
+\subsection{Equation-of-motion residuals}
+
+For task C1, differentiating $s=\sin\theta$ twice gives $\dot s=c\,\dot\theta$ and $\ddot s=c\,\ddot\theta-s\,\dot\theta^{2}$, so that $c\,\ddot\theta=\ddot s+s\,\dot\theta^{2}$. Multiplying Eq.~\eqref{eq:forced} by $c$ and substituting this identity gives Eq.~\eqref{eq:res_eom}. For task C3, differentiating $c=\cos\theta$ gives $\dot\theta=-\dot c/s$ and $\ddot\theta=-(\ddot c+c\,\dot\theta^{2})/s$. Substituting into Eq.~\eqref{eq:forced}, multiplying by $s$, replacing $\dot\theta^{2}=\dot c^{2}/s^{2}$, and multiplying again by $s^{2}$ removes every negative power of $s$ and gives Eq.~\eqref{eq:res_c3}.

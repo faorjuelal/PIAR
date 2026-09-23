@@ -1,0 +1,104 @@
+\section{Damped--driven dynamics: from the separatrix to a strange attractor}\label{sec:chaos}
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{figures/fig_route.pdf}
+\caption{Route to chaos ($\mu=-0.8$, $\gamma=0.25$, $\Omega=2/3$). (a) Stroboscopic bifurcation diagram versus the forcing amplitude; vertical lines mark the Melnikov threshold $A_c$ of Sec.~\ref{sec:melnikov} (dashed), the accumulation point $A_\infty$ of the period-doubling cascade, and the reference chaotic state $A_{\mathrm{ref}}=0.8$. (b) Largest Lyapunov exponent. (c) Magnification of the cascade; vertical lines mark the first four thresholds obtained by Floquet continuation, and the ratios of Eq.~\eqref{eq:feigenbaum} are listed.}
+\label{fig:route}
+\end{figure*}
+
+\subsection{Forced model and symmetry}\label{sec:forced_model}
+
+Real isolators dissipate energy and are driven by their environment. Both effects are introduced by adding viscous damping and a harmonic torque to Eq.~\eqref{eq:eom},
+\begin{equation}
+\ddot\theta + \gamma\dot\theta + \lambda\sin\theta\cos\theta - \beta\sin\theta = A\cos\Omega t ,
+\label{eq:forced}
+\end{equation}
+where $\gamma$ is the damping rate, $A$ is the torque amplitude per unit moment of inertia, and $\Omega$ is the angular frequency of the drive. Because the right-hand side depends explicitly on time, the phase space is extended to $S^{1}\times\mathbb R\times S^{1}$ by the forcing phase $\Omega t$, and the divergence of the flow is the constant $-\gamma$. Phase-space volumes therefore contract exponentially, and the long-time dynamics settles on an attractor. The reflection symmetry of Sec.~\ref{sec:separatrix} survives in a spatiotemporal form: Eq.~\eqref{eq:forced} is invariant under
+\begin{equation}
+(\theta,t)\to(-\theta,\,t+\pi/\Omega),
+\label{eq:st_symmetry}
+\end{equation}
+that is, under a reflection combined with a shift by half a forcing period. This symmetry constrains the sequence of bifurcations~\cite{SwiftWiesenfeld1984} and, as shown in Sec.~\ref{sec:identifiability}, determines the role of the forcing phase in the reconstruction. A harmonic acceleration $\ddot x_g$ of the base, which is the excitation relevant to seismic isolation, would instead enter as $-(\ddot x_g/L)\cos\theta$; it has the same symmetry but acts multiplicatively, and it is left for future work.
+
+The analysis uses $\mu=-0.8$ ($\kappa=0.2$), $\gamma=0.25$, and $\Omega=2/3$ in natural units, with the amplitude $A$, in units of $g/L$, as the control parameter. For $\mu<0$ the upright saddle carries a homoclinic loop around the cylinder, the natural seed of chaos analyzed in Sec.~\ref{sec:melnikov}, and the model connects continuously with the damped--driven pendulum ($\mu\to-1$), whose route to chaos is well documented; the chosen values define a weakly spring-loaded version of the pendulum studied by Baker and Gollub~\cite{BakerGollub1996}, with the same drive frequency. The isolator regime, $\mu\gtrsim0$, is better served by the base-excited model and is not treated here. Trajectories were integrated with a fixed-step fourth-order Runge--Kutta (RK4) scheme with 128 steps per forcing period $T_d=2\pi/\Omega$ (256 for the Floquet continuation and 96 for the Lyapunov chart of Sec.~\ref{sec:melnikov}), together with the variational equations whenever the tangent dynamics was required. Lyapunov exponents are denoted $\lambda_i$ and are distinct from $\lambda=k/M$.
+
+\subsection{Route to chaos}\label{sec:route}
+
+The stroboscopic Poincar\'e map, $P:\mathbf z(t_0)\mapsto\mathbf z(t_0+T_d)$ with $\mathbf z=(\theta,\dot\theta)$, reduces the flow to a two-dimensional map that contracts areas uniformly, $\det DP=e^{-2\pi\gamma/\Omega}$, a property verified to within $10^{-8}$ for the monodromy matrix computed with 256 steps per forcing period. Its bifurcation diagram [Fig.~\ref{fig:route}(a)], computed for 1101 amplitudes $A\in[0.30,1.40]$ after a transient of 300 forcing periods, shows the familiar alternation of periodic windows and chaotic bands. For $1.8\%$ of the amplitudes the period of the attractor differs between upward and downward sweeps of $A$, a signature of coexisting attractors.
+
+A period doubling occurs when a Floquet multiplier of a periodic orbit crosses $-1$. To locate these points, periodic orbits were computed by Newton iteration on $P^{n}(\mathbf z)=\mathbf z$, with the monodromy matrix taken from the variational equations, and continued in $A$~\cite{ParkerChua1989,Kuznetsov2004}. The cascade starts from one of two asymmetric period-1 orbits that are mirror images of each other under Eq.~\eqref{eq:st_symmetry}, since a symmetric orbit must break the symmetry before it can double its period~\cite{SwiftWiesenfeld1984}; the mirror orbit coexists as a separate attractor. Six successive doublings $A_1<\dots<A_6$ were tracked in this way (Table~\ref{tab:chaos}). The ratios of successive intervals,
+\begin{equation}
+\delta_n = \frac{A_{n+1}-A_{n}}{A_{n+2}-A_{n+1}},
+\label{eq:feigenbaum}
+\end{equation}
+take the values $4.716$, $4.667$, $4.666$, and $4.668$ [Fig.~\ref{fig:route}(c)], in agreement with Feigenbaum's universal constant $\delta=4.6692$~\cite{Feigenbaum1978}. Geometric extrapolation with this universal ratio places the accumulation point at $A_\infty=0.673239$, beyond which chaotic bands appear.
+
+The largest Lyapunov exponent measures the mean exponential rate at which nearby trajectories separate,
+\begin{equation}
+\lambda_1 = \lim_{t\to\infty}\frac1t\ln\frac{\|\delta\mathbf z(t)\|}{\|\delta\mathbf z(0)\|},
+\label{eq:lyapunov}
+\end{equation}
+where $\delta\mathbf z$ is an infinitesimal perturbation of the state evolved by the variational equations. It was computed with the algorithm of Benettin et al., with QR reorthonormalization~\cite{Benettin1980,Benettin1980b}, over 1500 forcing periods at every amplitude [Fig.~\ref{fig:route}(b)], and it exceeds $10^{-3}$ for $45\%$ of the scanned amplitudes. Because the extended flow has a neutral direction along time ($\lambda_2=0$) and the constant divergence $-\gamma$, the other two exponents obey the sum rule $\lambda_1+\lambda_3=-\gamma$, which holds to within $3.3\times10^{-7}$ over the whole scan; because the trace of the variational matrix equals $-\gamma$ for every state, this checks the volume contraction of the integrated tangent map rather than the value of $\lambda_1$ itself.
+
+\subsection{Splitting of the separatrix}\label{sec:melnikov}
+
+The bifurcation diagram shows where chaos appears; the geometry of the conservative system explains why. For $\mu<0$ the upright saddle is connected to itself by a homoclinic orbit $\theta_h(t)$, the separatrix of Eq.~\eqref{eq:Esep_neg}, which winds once around the cylinder; its time origin is fixed at the bottom of the loop. In the conservative system the stable and unstable manifolds of the saddle coincide along this orbit; damping and forcing split them, and whether the split manifolds intersect decides whether chaos is possible. To first order in $\gamma$ and $A$, the signed distance between the manifolds on the section $t=t_0$ is proportional to the Melnikov function~\cite{Melnikov1963,GuckenheimerHolmes1983}
+\begin{equation}
+\mathcal M(t_0) = -\gamma I_0 + A\,I_1(\Omega)\cos\Omega t_0,
+\label{eq:melnikov}
+\end{equation}
+with
+\begin{equation}
+I_0 = \int_{-\infty}^{\infty}\dot\theta_h^{2}\,\mathrm dt,\qquad
+I_1(\Omega) = \int_{-\infty}^{\infty}\dot\theta_h\cos\Omega t\,\mathrm dt .
+\label{eq:melnikov_integrals}
+\end{equation}
+The first term of Eq.~\eqref{eq:melnikov} is the energy dissipated by friction along the homoclinic loop, and the second is the work done by the drive along the loop. When the work can exceed the dissipation, that is, for
+\begin{equation}
+\frac{A}{\gamma} > \left(\frac{A}{\gamma}\right)_{\!c} = \frac{I_0}{|I_1(\Omega)|},
+\label{eq:melnikov_threshold}
+\end{equation}
+the function $\mathcal M$ has simple zeros, the manifolds intersect transversally, and the Smale--Birkhoff theorem guarantees a horseshoe, hence at least transient chaos~\cite{GuckenheimerHolmes1983}. For the PIAR both integrals have closed forms (Appendix~\ref{app:derivations}). For $\kappa=0.2$ and $\Omega=2/3$ they give $I_0=7.725$, $I_1=3.770$, and $(A/\gamma)_c=2.049$, i.e., $A_c=0.512$ for $\gamma=0.25$, and in the pendulum limit $\kappa\to0$ the classic threshold $(A/\gamma)_c=(4/\pi)\cosh(\pi\Omega/2)$ is recovered. The criterion is first order in the perturbation and neither necessary nor sufficient for a chaotic attractor, but it is borne out by a chart of the largest Lyapunov exponent in the $(A,\Omega)$ plane [Fig.~\ref{fig:attractor}(c)]: none of the chaotic cells lies below the Melnikov curve, whereas $26.7\%$ of the cells above it are chaotic. In this precise sense, the strange attractor of the damped--driven PIAR grows out of the separatrix of the conservative one.
+
+\subsection{The reference strange attractor}\label{sec:attractor}
+
+The chaotic state at $A=0.8$ is the attractor that the reconstruction of Secs.~\ref{sec:fprm} and \ref{sec:results} must recover. Its orbit wanders around the ghost of the conservative separatrix, alternating between rotations and librations in an unpredictable sequence [Fig.~\ref{fig:attractor}(a), drawn through a cubic Hermite interpolant between integration steps; Sec.~\ref{sec:lab}], and its invariant measure on the stroboscopic section displays the folded, fractal structure of a strange attractor [Fig.~\ref{fig:attractor}(b)]. Ten independent runs of 5000 forcing periods give $\lambda_1=0.0956\pm0.0008$ (standard error) and $\lambda_3=-0.3456$, which sum to $-0.2500$. The Lyapunov time, $1/\lambda_1=10.5$ natural time units, is about one forcing period, and an error of the size of the measurement noise used below, $0.01$, grows to the size of the signal in about $\ln100\approx4.6$ Lyapunov times, i.e., five forcing periods. Long gaps in a record therefore cannot be bridged by extrapolating the past of the same signal: the missing information must come from a concurrent, complete channel, which is precisely the premise of the FPRM.
+
+The exponents also fix the dimension of the attractor. The Kaplan--Yorke dimension~\cite{KaplanYorke1979},
+\begin{equation}
+D_{\mathrm{KY}} = 2 + \frac{\lambda_1}{|\lambda_3|} = 2.277 ,
+\label{eq:dky}
+\end{equation}
+is the dimension of the flow ($1.277$ on the Poincar\'e section), and the correlation dimension of the section, computed with the Grassberger--Procaccia algorithm~\cite{Grassberger1983} and fitted over $10^{-4}\le r\le2\times10^{-3}$, is $D_2=1.13$, consistent with $D_2\le D_{\mathrm{KY}}-1$ on the section. These values set the embedding dimension that suffices according to the reconstruction theorems of Sec.~\ref{sec:takens}. A delay embedding of dimension $d_E>2D_0$, with $D_0$ the box-counting dimension of the attractor, is generically one-to-one~\cite{Sauer1991}. With $D_0\simeq D_{\mathrm{KY}}$, the dimension $d_E=5$ exceeds this bound only by a small margin; for the spring force, the fraction of false nearest neighbors indeed falls to $0.9\%$ at $d_E=5$ (Sec.~\ref{sec:tasks}).
+
+The attractor is, finally, symmetric. The stroboscopic section at phase zero agrees with the mirror image of the section taken half a forcing period later: for three records of $2\times10^{5}$ forcing periods, the total-variation distance between their histograms is $0.013$--$0.018$, comparable to the distance of $0.013$--$0.015$ between the sections of two independent records of the same length, which measures the sampling noise, and the time averages of $\sin\theta$ and $\dot\theta$ vanish to within $2\times10^{-3}$ (Table~S9 of the supplementary material). Every state of the attractor is therefore accompanied by its image under Eq.~\eqref{eq:st_symmetry}, with the opposite angle and angular velocity and a forcing phase shifted by $\pi$.
+
+Three properties of the attractor thus define the reconstruction problem addressed next. Its Lyapunov time limits how long a gap can be bridged from the incomplete record alone; its dimension fixes how much history of the complete channel must be retained; and its symmetry decides which channels can stand in for which, since a channel that is invariant under the reflection, such as the collar height, cannot, on its own, distinguish a state from its mirror image unless the phase of the forcing is also known. Section~\ref{sec:fprm} turns these three properties into the design of the reconstruction.
+
+\begin{table}
+\caption{Characterization of the damped--driven PIAR ($\mu=-0.8$, $\gamma=0.25$, $\Omega=2/3$; natural units). The Lyapunov exponents, the Lyapunov time, and the dimensions refer to the reference state $A=0.8$; $A_\infty$ is extrapolated with Feigenbaum's constant.}
+\label{tab:chaos}
+\begin{ruledtabular}
+\begin{tabular}{@{}lr@{}}
+Quantity & Value\\
+\hline
+Doublings $A_1$, $A_2$ & 0.66200641, 0.67085169\\
+Doublings $A_3$, $A_4$ & 0.67272715, 0.67312902\\
+Doublings $A_5$, $A_6$ & 0.67321514, 0.67323359\\
+Ratios $\delta_1,\dots,\delta_4$ & 4.716, 4.667, 4.666, 4.668\\
+Accumulation point $A_\infty$ & 0.673239\\
+Melnikov integrals $I_0$, $I_1$ & 7.725, 3.770\\
+Melnikov threshold $(A/\gamma)_c$, $A_c$ & 2.049, 0.512\\
+Exponents $\lambda_1$, $\lambda_3$ & $0.0956(8)$, $-0.3456$\\
+Lyapunov time $1/\lambda_1$ & 10.5 ($1.1\,T_d$)\\
+$D_{\mathrm{KY}}$ (flow, section) & 2.277, 1.277\\
+$D_2$ (section) & 1.13\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{figures/fig_attractor.pdf}
+\caption{The reference strange attractor ($A=0.8$). (a) Forty forcing periods of the chaotic orbit on the phase cylinder, drawn through the cubic Hermite interpolant, with the separatrix of the conservative system (dashed) and the upright saddle (cross). (b) Invariant measure on the stroboscopic section: logarithmic histogram of $2\times10^{5}$ points. (c) Largest Lyapunov exponent in the $(A,\Omega)$ plane (diverging colormap \textit{vik}~\cite{Crameri2020}, centered at zero; $90\times70$ cells with 150 transient and 400 recorded periods) and Melnikov threshold $A_c(\Omega)=\gamma I_0/|I_1(\Omega)|$ (white); the star marks the reference state.}
+\label{fig:attractor}
+\end{figure*}
