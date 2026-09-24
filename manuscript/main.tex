@@ -96,12 +96,12 @@ The author has no conflicts to disclose.
 \textbf{Fredy Alexander Orjuela L\'opez:} Conceptualization (lead); Methodology (lead); Software (lead); Formal analysis (lead); Investigation (lead); Visualization (lead); Writing -- original draft (lead); Writing -- review \& editing (lead).
 
 \section*{Data Availability Statement}
-The data that support the findings of this study are available within the article and its supplementary material.
-\ifx\zenodoDOI\empty
-The code and data that regenerate every figure and number (the \texttt{piar} package, the experiment and figure scripts, the unit tests, the interactive notebook, the browser-based simulation, and the numerical results) will be openly available in Zenodo upon publication.
-\else
-The code and data that regenerate every figure and number (the \texttt{piar} package, the experiment and figure scripts, the unit tests, the interactive notebook, the browser-based simulation, and the numerical results) are openly available in Zenodo at \url{https://doi.org/\zenodoDOI}.
-\fi
+The data that support the findings of this study are available within the article and its supplementary material. The code and data that regenerate every figure and number (the \texttt{piar} package, the experiment and figure scripts, the unit tests, the interactive notebook, the browser-based simulation, and the numerical results) are openly available in GitHub at \url{https://github.com/faorjuelal/PIAR}.
+\ifdefempty{\zenodoDOI}{%
+An archived version will be deposited in Zenodo upon publication.%
+}{%
+An archived version is openly available in Zenodo at \url{https://doi.org/\zenodoDOI}.%
+}
 
 \appendix
 \input{sections/app_derivations}

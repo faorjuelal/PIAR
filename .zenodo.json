@@ -26,6 +26,11 @@
       "identifier": "10.1038/s41467-026-77922-1",
       "relation": "references",
       "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/faorjuelal/PIAR",
+      "relation": "isSupplementTo",
+      "scheme": "url"
     }
   ]
 }

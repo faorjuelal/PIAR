@@ -3,6 +3,7 @@
 Code, data, and article source for *From separatrix to strange attractor: Physics-informed normalizing
 flows for recovering missing dynamics in a spring-coupled inverted pendulum*, by Fredy Alexander Orjuela
 López (Universidad de los Andes), submitted to *Chaos* (AIP Publishing) in September 2026.
+Repository: <https://github.com/faorjuelal/PIAR>.
 
 The spring-coupled inverted pendulum (PIAR) is a rod held upright by a horizontal spring. A single
 parameter, μ = kL/(Mg) − 1, controls its conservative dynamics; under damping and forcing it becomes
