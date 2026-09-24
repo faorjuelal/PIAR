@@ -12,7 +12,7 @@ authors:
     given-names: "Fredy Alexander"
     affiliation: "Departamento de Física, Universidad de los Andes, Bogotá, Colombia"
     email: "fa.orjuela@uniandes.edu.co"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"   (add before the Zenodo release)
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   (add the author's ORCID)
 keywords:
   - inverted pendulum
   - chaos

@@ -50,8 +50,6 @@
 % REVTeX sets \sloppy in two-column mode; the same line breaking is used in preprint mode
 \AtBeginDocument{\PIARlayout{\sloppy}{}}
 
-% Zenodo DOI of the code and data archive: fill in after reserving the DOI (e.g. 10.5281/zenodo.1234567)
-\newcommand{\zenodoDOI}{}
 
 \begin{document}
 
@@ -97,11 +95,6 @@ The author has no conflicts to disclose.
 
 \section*{Data Availability Statement}
 The data that support the findings of this study are available within the article and its supplementary material. The code and data that regenerate every figure and number (the \texttt{piar} package, the experiment and figure scripts, the unit tests, the interactive notebook, the browser-based simulation, and the numerical results) are openly available in GitHub at \url{https://github.com/faorjuelal/PIAR}.
-\ifdefempty{\zenodoDOI}{%
-An archived version will be deposited in Zenodo upon publication.%
-}{%
-An archived version is openly available in Zenodo at \url{https://doi.org/\zenodoDOI}.%
-}
 
 \appendix
 \input{sections/app_derivations}
